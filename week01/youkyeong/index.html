@@ -30,7 +30,12 @@
           <li><i class="ri-send-plane-line"></i>메시지</li>
           <li><i class="ri-heart-3-line"></i>알림</li>
           <li><i class="ri-add-box-line"></i>만들기</li>
-          <li>프로필</li>
+          <li>
+            <img
+              src="./img/right_panel_user_profile.jpg"
+              class="profile-img"
+            />프로필
+          </li>
           <br />
           <br />
           <li>
@@ -42,92 +47,198 @@
       </nav>
     </header>
 
-    <main class="content">
-      <section>
-        <div class="story-bar">
-          <div class="story">
-            <img src="" alt="" />
-            <p>내 스토리</p>
+    <div class="content">
+      <main class="feed">
+        <section>
+          <!-- 스토리 -->
+          <div class="story-bar">
+            <div class="story">
+              <div class="story-ring">
+                <img src="./img/right_panel_user_profile.jpg" alt="" />
+              </div>
+              <p>내 스토리</p>
+            </div>
+            <div class="story">
+              <div class="story-ring">
+                <img src="./img/story2.jpg" alt="" />
+              </div>
+              <p>내 스토리</p>
+            </div>
+            <div class="story">
+              <div class="story-ring">
+                <img src="./img/story2.jpg" alt="" />
+              </div>
+              <p>내 스토리</p>
+            </div>
+            <div class="story">
+              <div class="story-ring">
+                <img src="./img/story2.jpg" alt="" />
+              </div>
+              <p>내 스토리</p>
+            </div>
+            <div class="story">
+              <div class="story-ring">
+                <img src="./img/story2.jpg" alt="" />
+              </div>
+              <p>내 스토리</p>
+            </div>
+            <div class="story">
+              <div class="story-ring">
+                <img src="./img/story2.jpg" alt="" />
+              </div>
+              <p>내 스토리</p>
+            </div>
+            <div class="story">
+              <div class="story-ring">
+                <img src="./img/story2.jpg" alt="" />
+              </div>
+              <p>내 스토리</p>
+            </div>
+            <div class="story">
+              <div class="story-ring">
+                <img src="./img/story2.jpg" alt="" />
+              </div>
+              <p>내 스토리</p>
+            </div>
+            <div class="story">
+              <div class="story-ring">
+                <img src="./img/story2.jpg" alt="" />
+              </div>
+              <p>내 스토리</p>
+            </div>
           </div>
-          <div class="story">
-            <img src="" alt="" />
-            <p>내 스토리</p>
+        </section>
+        <section>
+          <!-- 게시물 -->
+          <article class="post">
+            <!-- 게시물 상단: 유저 정보 -->
+            <div class="post-header">
+              <img
+                src="./img/post1_profile.jpeg"
+                alt="user profile"
+                class="profile-img"
+              />
+              <span class="username"><strong>kbo.offical</strong></span>
+              <span class="time">· 50분</span>
+              <i class="ri-more-line"></i>
+            </div>
+
+            <!-- 게시물 이미지 -->
+            <div class="post-image">
+              <img src="./img/post1.jpg" alt="post" />
+            </div>
+
+            <!-- 하단 아이콘 (좋아요, 댓글 등) -->
+            <div class="post-actions">
+              <i class="ri-heart-3-line"></i>
+              <i class="ri-chat-3-line"></i>
+              <i class="ri-send-plane-line"></i>
+              <i class="ri-bookmark-line save"></i>
+            </div>
+
+            <!-- 좋아요 수 -->
+            <div class="likes">좋아요 1690개</div>
+
+            <!-- 캡션 + 더 보기 -->
+            <div class="caption">
+              <strong>kbo.official</strong> [KBO 리그 팀 순위]
+              <br />
+              <br />
+              5월 6일 화요일...
+              <span class="more">더 보기</span>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <!-- 인스타그램 추천 친구 목록 -->
+      <aside class="right-panel">
+        <!-- 내 프로필(로그인된 유저) -->
+        <div class="user-info">
+          <img src="./img/right_panel_user_profile.jpg" class="profile-img" />
+          <div class="user-text">
+            <strong>ukxeonxg</strong>
+            <span>유경</span>
           </div>
-          <div class="story">
-            <img src="" alt="" />
-            <p>내 스토리</p>
-          </div>
-          <div class="story">
-            <img src="" alt="" />
-            <p>내 스토리</p>
-          </div>
-          <div class="story">
-            <img src="" alt="" />
-            <p>내 스토리</p>
-          </div>
-          <div class="story">
-            <img src="" alt="" />
-            <p>내 스토리</p>
-          </div>
-          <div class="story">
-            <img src="" alt="" />
-            <p>내 스토리</p>
-          </div>
-          <div class="story">
-            <img src="" alt="" />
-            <p>내 스토리</p>
-          </div>
-          <div class="story">
-            <img src="" alt="" />
-            <p>내 스토리</p>
-          </div>
+          <a href="#" class="switch">전환</a>
         </div>
-      </section>
-      <section class="feed">
-        <article class="post">
-          <!-- 게시물 상단: 유저 정보 -->
-          <div class="post-header">
-            <img
-              src="./img/post1_profile.jpeg"
-              alt="user profile"
-              class="profile-img"
-            />
-            <span class="username"><strong>kbo.offical</strong></span>
-            <span class="time">· 50분</span>
-            <i class="ri-more-line"></i>
+
+        <!-- 추천 섹션 타이틀 -->
+        <div class="suggest-title">
+          <span>회원님을 위한 추천</span>
+          <a href="#" class="see-all">모두 보기</a>
+        </div>
+
+        <!-- 추천 사용자 리스트 -->
+        <section class="suggest-list">
+          <div class="suggest-user">
+            <img src="./img/user1.jpg" class="profile-img" />
+            <div class="user-text">
+              <strong>charles_is_loved</strong>
+              <span>ng.im님 외 15명이 팔로우합니다</span>
+            </div>
+            <a href="#" class="follow">팔로우</a>
           </div>
-
-          <!-- 게시물 이미지 -->
-          <div class="post-image">
-            <img src="./img/post1.jpg" alt="post" />
+        </section>
+        <section class="suggest-list">
+          <div class="suggest-user">
+            <img src="./img/user1.jpg" class="profile-img" />
+            <div class="user-text">
+              <strong>charles_is_loved</strong>
+              <span>ng.im님 외 15명이 팔로우합니다</span>
+            </div>
+            <a href="#" class="follow">팔로우</a>
           </div>
-
-          <!-- 하단 아이콘 (좋아요, 댓글 등) -->
-          <div class="post-actions">
-            <i class="ri-heart-3-line"></i>
-            <i class="ri-chat-3-line"></i>
-            <i class="ri-send-plane-line"></i>
-            <i class="ri-bookmark-line save"></i>
+        </section>
+        <section class="suggest-list">
+          <div class="suggest-user">
+            <img src="./img/user1.jpg" class="profile-img" />
+            <div class="user-text">
+              <strong>charles_is_loved</strong>
+              <span>ng.im님 외 15명이 팔로우합니다</span>
+            </div>
+            <a href="#" class="follow">팔로우</a>
           </div>
-
-          <!-- 좋아요 수 -->
-          <div class="likes">좋아요 1690개</div>
-
-          <!-- 캡션 + 더 보기 -->
-          <div class="caption">
-            <strong>kbo.official</strong> [KBO 리그 팀 순위]
-            <br />
-            <br />
-            5월 6일 화요일...
-            <span class="more">더 보기</span>
+        </section>
+        <section class="suggest-list">
+          <div class="suggest-user">
+            <img src="./img/user1.jpg" class="profile-img" />
+            <div class="user-text">
+              <strong>charles_is_loved</strong>
+              <span>ng.im님 외 15명이 팔로우합니다</span>
+            </div>
+            <a href="#" class="follow">팔로우</a>
           </div>
-        </article>
-      </section>
-
-      <aside>
-        <section></section>
+        </section>
+        <section class="suggest-list">
+          <div class="suggest-user">
+            <img src="./img/user1.jpg" class="profile-img" />
+            <div class="user-text">
+              <strong>charles_is_loved</strong>
+              <span>ng.im님 외 15명이 팔로우합니다</span>
+            </div>
+            <a href="#" class="follow">팔로우</a>
+          </div>
+        </section>
+        <div class="footer">
+          <ul>
+            <li>소개 ·</li>
+            <li>도움말 ·</li>
+            <li>홍보 센터 ·</li>
+            <li>API ·</li>
+            <li>채용 정보 ·</li>
+          </ul>
+          <ul>
+            <li>개인정보처리방침 ·</li>
+            <li>약관 ·</li>
+            <li>위치 ·</li>
+            <li>언어 ·</li>
+            <li><span class="meta">Meta Verified</span></li>
+          </ul>
+          <p>© 2025 INSTAGRAM FROM META</p>
+        </div>
       </aside>
-    </main>
+    </div>
 
     <footer></footer>
   </body>
