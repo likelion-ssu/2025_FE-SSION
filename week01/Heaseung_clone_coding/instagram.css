@@ -1,0 +1,302 @@
+body {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #000;
+  color: white;
+}
+
+.sideBar {
+  width: 250px;
+  height: 100vh;
+  background-color: #000;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: white;
+}
+
+.feed {
+  padding: 20px 40px;
+  display: block;
+}
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo img {
+  width: 120px;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  margin-bottom: 20px;
+}
+
+.menu li div {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.menu li div:hover {
+  background-color: #1a1a1a;
+}
+
+.menu img {
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+}
+
+.menu p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.sideBar_Bottom {
+  margin-top: 20px;
+}
+
+.sideBar_Bottom div {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.sideBar_Bottom div:hover {
+  background-color: #1a1a1a;
+}
+
+.sideBar_Bottom img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.sideBar_Bottom p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.story {
+  padding: 20px 0;      
+  border-bottom: 1px solid #333;
+  overflow-x: hidden;    
+}
+
+.story_list {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.story_element {
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+.story_element img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.story_element p {
+  font-size: 12px;
+  margin-top: 6px;
+  color: white;
+}
+
+.article {
+  width: 100%;
+  max-width: 600px;
+  background-color: #000;
+  color: white;
+  padding: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.article img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.article_menu {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.article_menu img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.article_menu img:last-child {
+  margin-left: auto;
+}
+
+.like_number,
+.post,
+.article p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.main_content {
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  width: 640px;
+  margin: 10px 20px 0 400px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.writer {
+  display: flex;
+  align-items: center;   
+  gap: 10px;             
+  margin-bottom: 10px;   
+}
+
+.writer img {
+  width: 32px;           
+  height: 32px;
+  border-radius: 50%;    
+  object-fit: cover;     
+}
+
+
+.writer p {
+  margin: 0;            
+  font-size: 14px;      
+  color: #fff;     
+}
+
+.right-part {
+  width: 350px;
+  margin: 60px 100px 0 20px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #fff;
+}
+
+.right-part .my-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.right-part .my-info img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.right-part .my-name {
+  font-weight: bold;
+}
+
+.right-part .switch-btn {
+  color: #0095f6;
+  font-size: 12px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.right-part .recommend-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.right-part .view-all {
+  color: #aaa;
+  text-decoration: none;
+}
+
+.right-part .recommend-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.right-part .recommend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.right-part .recommend-item img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.right-part .recommend-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.right-part .name {
+  font-weight: bold;
+}
+
+.right-part .follow {
+  color: #8e8e8e;
+  font-size: 12px;
+}
+
+.right-part .follow-button {
+  color: #0095f6;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  white-space: nowrap;
+}
