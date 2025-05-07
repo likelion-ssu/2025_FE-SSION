@@ -1,0 +1,156 @@
+ul {
+  list-style-type: none;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  background-color: white;
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+}
+
+.menu {
+  padding: 0;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  gap: 12px;
+  cursor: pointer;
+}
+
+/* 아이콘 스타일 */
+.menu li i {
+  font-size: 27px;
+  position: relative;
+  top: 2px;
+}
+
+.content {
+  margin-left: 240px;
+  width: calc(100% - 240px);
+  padding: 20px;
+  padding-left: 50px;
+  overflow-y: auto;
+}
+
+.story-bar {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 0px 37px;
+  background-color: white;
+  top: 0;
+}
+
+.story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 66px;
+  flex-shrink: 0;
+}
+
+.story img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid #f03;
+  object-fit: cover;
+}
+
+.story p {
+  font-size: 12px;
+  margin-top: 6px;
+  text-align: center;
+}
+
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.post {
+  background-color: white;
+  border-radius: 10px;
+  max-width: 480px;
+  margin: 15px 170px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.post-header i {
+  margin-left: auto;
+  font-size: 20px;
+}
+
+.profile-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.post-image img {
+  width: 468px;
+  height: auto;
+  display: block;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0px;
+  font-size: 27px;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.post-actions .save {
+  margin-left: auto;
+}
+
+.likes {
+  padding: 0px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.caption {
+  padding: 0px;
+  font-size: 14px;
+}
+
+.time {
+  color: gray;
+}
+
+.more {
+  color: gray;
+  cursor: pointer;
+}
