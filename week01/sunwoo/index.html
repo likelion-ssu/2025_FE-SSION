@@ -1,9 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Instagram Clone</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <h1 class="logo">Instagram</h1>
+        <div class="wrapper">
+          <nav>
+            <ul>
+              <li>🏠 홈</li>
+              <li>🔍 검색</li>
+              <li>🧭 탐색 탭</li>
+              <li>🎞 릴스</li>
+              <li>📨 메시지</li>
+              <li>🤍 알림</li>
+              <li>➕ 만들기</li>
+              <li>👤 프로필</li>
+            </ul>
+          </nav>
+          <div class="more">☰ 더 보기</div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="stories">
+          <img src="./강아지.jpg" class="story" />
+          <img src="./강아지.jpg" class="story" />
+          <img src="./강아지.jpg" class="story" />
+          <img src="./강아지.jpg" class="story" />
+          <img src="./강아지.jpg" class="story" />
+          <img src="./강아지.jpg" class="story" />
+          <img src="./강아지.jpg" class="story" />
+        </div>
+
+        <div class="post">
+          <div class="post-header">
+            <span class="username">hsn_xoo</span>
+            <span class="time">· 3분</span>
+          </div>
+          <div class="post-content">[게시글 콘텐츠]</div>
+        </div>
+      </main>
+
+      <aside class="right-panel">
+        <div class="profile-summary">
+          <div class="username">hsn_xoo</div>
+          <div class="fullname">황선우</div>
+          <a href="#">전환</a>
+        </div>
+        <div class="suggestions-header">
+          회원님을 위한 추천 <span class="view-all">모두 보기</span>
+        </div>
+        <ul class="suggestions">
+          <li>seok_hyexn <button>팔로우</button></li>
+          <li>jmk_ent <button>팔로우</button></li>
+          <li>skyb_1231 <button>팔로우</button></li>
+        </ul>
+      </aside>
+    </div>
+  </body>
 </html>
