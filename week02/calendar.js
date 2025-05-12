@@ -35,7 +35,7 @@ next_button.addEventListener('click', () => {
 make_calendar(year, month);
 
 function make_calendar(year, month) {
-    document.querySelector(`.year_month`).textContent = `${year}년 ${month + 1}월`;
+    document.getElementById(`year_month`).textContent = `${year}년 ${month + 1}월`;
     const first_day = new Date(year, month, 1).getDay();
     const last_date = new Date(year, month + 1, 0).getDate();
 
