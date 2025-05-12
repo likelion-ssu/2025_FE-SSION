@@ -2,12 +2,40 @@ const date = new Date();
 const year = date.getFullYear();
 const month = date.getMonth();
 
-const year_month = document.querySelector('.year_month');
-year_month.textContent = `${year}년 ${month + 1}월`
+let tmp_date = new Date();
+let tmp_year = tmp_date.getFullYear();
+let tmp_month = tmp_date.getMonth();
+
+let prev_button = document.getElementById(`prev_month`);
+let next_button = document.getElementById(`next_month`);
+
+prev_button.textContent = '<';
+next_button.textContent = '>';
+
+prev_button.addEventListener('click', () => {
+    tmp_month--;
+    if(tmp_month < 0) {
+        tmp_month = 11;
+        tmp_year--;
+    }
+    update_calendar();
+})
+
+next_button.addEventListener('click', () => {
+    tmp_month++;
+    if(tmp_month > 11) {
+        tmp_month = 0;
+        tmp_year++;
+    }
+    update_calendar();
+})
+
+
 
 make_calendar(year, month);
 
 function make_calendar(year, month) {
+    document.querySelector(`.year_month`).textContent = `${year}년 ${month + 1}월`;
     const first_day = new Date(year, month, 1).getDay();
     const last_date = new Date(year, month + 1, 0).getDate();
 
@@ -30,4 +58,8 @@ function make_calendar(year, month) {
             }
         }
     }
+}
+
+function update_calendar() {
+    make_calendar(tmp_year, tmp_month);
 }
