@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0f0f0f;
+    color: white;
+}
+
+.top_part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #0f0f0f;
+    border-bottom: 1px solid #303030;
+}
+
+.header_left, .header_middle {
+    display: flex;
+    align-items: center;
+}
+
+.header_left img {
+    height: 23px;
+}
+
+#youtube_main {
+    height: 32px;
+    margin-left: 28px;
+}
+.header_middle {
+    flex: 1;
+    justify-content: center;
+}
+
+.search_input {
+    width: 500px;
+    height: 36px;
+    padding: 0 16px;
+    font-size: 14px;
+    border: 1px solid #303030;
+    border-right: none;
+    border-radius: 40px 0 0 40px;
+    background-color: #121212;
+    color: white;
+    box-sizing: border-box;
+}
+
+.search_button {
+    height: 36px;
+    padding: 0 16px;
+    border: 1px solid #303030;
+    border-left: none;
+    border-radius: 0 40px 40px 0;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.search_button img, .voice_button img {
+    height: 24px;
+}
+
+.voice_button {
+    background-color: #222;
+    border: none;
+    margin-left: 10px;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+nav {
+    width: 72px;
+    background-color: #0f0f0f;
+    padding-top: 10px;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #303030;
+}
+
+.menu_button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 12px 0;
+    cursor: pointer;
+}
+
+.menu_button img {
+    height: 24px;
+    margin-bottom: 4px;
+}
+
+.menu_button p {
+    font-size: 10px;
+    color: white;
+    margin: 0;
+}
+
+.header_right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: 16px;
+}
+
+.make_button {
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    appearance: none;
+}
+
+.notification_button,
+.profile_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.notification_button img,
+.profile_icon img {
+    height: 24px;
+    width: 24px;
+    object-fit: contain;
+}

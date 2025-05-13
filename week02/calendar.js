@@ -43,7 +43,6 @@ function make_calendar(year, month) {
 
     for(let week = 1; week < 7; week++) {
         const week_part = document.getElementById(`week0${week}`);
-        
         if(week_part == null) continue;
         week_part.innerHTML = ``;
 
