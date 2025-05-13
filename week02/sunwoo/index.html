@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>YouTube Clone</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="left-section">
+        <img src = "https://img.icons8.com/?size=100&id=120374&format=png&color=000000" class="menu-btn"></img>
+        <img
+          src="https://www.logo.wine/a/logo/YouTube/YouTube-Logo.wine.svg"
+          class="logo"
+          alt="YouTube"
+        />
+      </div>
+      <div class="center-section">
+        <input type="text" placeholder="검색" class="search-input" />
+        <img src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" class="search-btn" alt = "검색버튼"/>
+        <img src="https://img.icons8.com/?size=100&id=59836&format=png&color=000000" class="mic-btn" alt="음성인식버튼"/>
+      </div>
+      <div class="right-section">
+        <div class="make-btn">
+        <img src="https://img.icons8.com/?size=100&id=11153&format=png&color=000000" class="make-icon" alt="만들기버튼"/>만들기
+        </div>
+        <img src="https://img.icons8.com/?size=100&id=68376&format=png&color=000000" class="bell" alt="알림">
+        <span class="profile">H</span>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <a href="#">🏠 홈</a>
+      <a href="#">🔥 Shorts</a>
+      <a href="#">📺 구독</a>
+      <a href="#">🕘 나중에 볼 동영상</a>
+    </aside>
+
+    <main class="main-content">
+      <div class="tab-bar">
+        <button class="tab active">홈</button>
+        <button class="tab">Shorts</button>
+        <button class="tab">구독</button>
+        <button class="tab">나중에 볼 동영상</button>
+      </div>
+
+      <div class="video-grid">
+        <!-- 예시 카드 1 -->
+        <div class="video-card">
+          <div class="thumbnail"></div>
+          <div class="details">
+            <div class="channel-icon">C</div>
+            <div class="video-info">
+              <h4>영상 제목 예시</h4>
+              <p>채널 이름</p>
+              <p>100만회 · 3일 전</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 예시 카드 2 -->
+        <div class="video-card">
+          <div class="thumbnail"></div>
+          <div class="details">
+            <div class="channel-icon">C</div>
+            <div class="video-info">
+              <h4>다른 영상 제목</h4>
+              <p>채널 이름</p>
+              <p>3천회 · 1주 전</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카드 더 복제 가능 -->
+      </div>
+    </main>
+  </body>
+</html>
