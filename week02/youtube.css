@@ -7,6 +7,11 @@ body {
 }
 
 .top_part {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -146,4 +151,115 @@ nav {
     height: 24px;
     width: 24px;
     object-fit: contain;
+}
+
+.video_option {
+    position: fixed;
+    top: 60px;
+    left: 88px;
+    right: 0;
+    z-index: 90;
+    display: flex;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: #0f0f0f;
+}
+
+.category {
+  background-color: #303030;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 6px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.category:first-child {
+  background-color: white;
+  color: black;
+}
+
+
+.video_list {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 16px;
+    table-layout: fixed;
+}
+
+.video_list td {
+    vertical-align: top;
+    width: calc((100% - 32px) / 3);
+}
+
+.video_part {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.video_part > img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.video_info {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.profile_image {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.video_text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.video_title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.editor {
+    font-size: 12px;
+    color: #aaaaaa;
+    margin: 0;
+}
+
+.video_info p:last-child {
+    font-size: 12px;
+    color: #777777;
+    margin: 0;
+}
+
+.video_container {
+    position: fixed;
+    top: calc(60px + 52px);
+    left: 88px;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    padding: 16px;
+    box-sizing: border-box;
+    background-color: #0f0f0f;
 }
