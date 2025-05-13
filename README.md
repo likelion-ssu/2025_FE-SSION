@@ -78,8 +78,8 @@
 
 | <b> 주차 </b>           |                         <b> 과제 내용 </b>                          |
 | :---------------------- | :-----------------------------------------------------------------: |
-| <strong>week 1</strong> | -  |
-| <strong>week 2</strong> | -  |
+| <strong>week 1</strong> | 인스타그램 메인 페이지 클론 코딩하기 |
+| <strong>week 2</strong> | 유튜브 메인 페이지 클론 코딩하기  |
 | <strong>week 3</strong> | -  |
 | <strong>week 4</strong> | -  |
 
