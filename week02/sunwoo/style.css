@@ -6,7 +6,6 @@
 }
 
 body {
-  background: #f9f9f9;
   display: flex;
   flex-direction: column;
 }
@@ -108,20 +107,31 @@ body {
 .sidebar {
   position: fixed;
   top: 56px;
-  left: 0;
-  width: 200px;
+  width: 70px;
   height: calc(100vh - 56px);
   background: white;
   padding: 16px;
-  border-right: 1px solid #ddd;
 }
 
-.sidebar a {
-  display: block;
-  padding: 12px 0;
-  color: #333;
-  text-decoration: none;
-  font-size: 14px;
+.btn-align {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.btn-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-text {
+  text-align: center;
+  font-size: 10px;
+  margin-bottom: 30px;
+  cursor: pointer;
 }
 
 .main-content {
