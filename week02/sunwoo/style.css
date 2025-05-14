@@ -138,22 +138,25 @@ body {
 
 .main-content {
   margin-top: 56px;
-  margin-left: 200px;
-  padding: 16px;
+  margin-left: 70px;
+  padding: 12px 24px;
 }
 
 .tab-bar {
   display: flex;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 36px;
 }
 
 .tab {
-  padding: 8px 16px;
+  height: 32px;
+  padding: 0px 12px;
   background: #eee;
-  border-radius: 16px;
-  border: none;
+  border-radius: 10px;
   cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
 }
 
 .tab.active {
