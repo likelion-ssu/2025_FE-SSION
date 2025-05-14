@@ -157,6 +157,7 @@ body {
   font-size: 14px;
   display: flex;
   align-items: center;
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
 }
 
 .tab.active {
