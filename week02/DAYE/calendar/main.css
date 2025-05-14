@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(195, 203, 224);
+}
+
+header {
+  margin-top: 30px;
+  width: 90vw;
+  margin-left: 5vw;
+}
+
+.header_top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  gap: 20px;
+  background-color: rgb(16, 25, 54);
+  border-radius: 8px 8px 0 0;
+}
+
+.month_text {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.month_button {
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.header_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  height: 50px;
+  color: white;
+  background-color: rgb(16, 25, 54);
+  font-weight: bold;
+}
+
+.header_bottom > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 176px;
+}
+
+main {
+  width: 90vw;
+  margin-left: 5vw;
+  border: 2px solid rgb(16, 25, 54);
+  border-top: none;
+  background-color: white;
+  padding: 10px;
+}
+
+.dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.datesdiv {
+  width: 176px;
+  height: 10vh;
+  text-align: center;
+  line-height: 10vh;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+#datesdivprev,
+#datesdivnext{
+    color: rgb(156, 155, 155);
+}
+
+.prev,
+.next {
+  color: white;
+}
+
+.today {
+  background-color: rgb(204, 210, 232);
+  font-weight: bold;
+}
+
