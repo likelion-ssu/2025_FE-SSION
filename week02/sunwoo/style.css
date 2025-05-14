@@ -140,12 +140,18 @@ body {
   margin-top: 56px;
   margin-left: 70px;
   padding: 12px 24px;
+  background-color: #ffffff;
 }
 
 .tab-bar {
   display: flex;
+  margin-top: 56px;
+  margin-left: 70px;
+  padding: 12px 24px;
+  width: 100%;
   gap: 12px;
-  margin-bottom: 36px;
+  position: fixed;
+  background-color: #ffffff;
 }
 
 .tab {
@@ -166,6 +172,7 @@ body {
 }
 
 .video-grid {
+  margin-top: 60px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
@@ -173,7 +180,6 @@ body {
 
 .video-card {
   background: white;
-  overflow: hidden;
   cursor: pointer;
 }
 
