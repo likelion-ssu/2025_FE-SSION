@@ -120,6 +120,8 @@ body {
   align-items: center;
   margin: 10px 0px;
   cursor: pointer;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .btn-icon {
@@ -130,7 +132,7 @@ body {
 .btn-text {
   text-align: center;
   font-size: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   cursor: pointer;
 }
 
