@@ -173,20 +173,20 @@ body {
 
 .video-card {
   background: white;
-  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 .thumbnail {
   width: 100%;
   height: 180px;
+  border-radius: 8px;
   background: #ccc;
 }
 
 .details {
   display: flex;
-  padding: 12px;
+  padding-top: 12px;
 }
 
 .channel-icon {
@@ -201,6 +201,7 @@ body {
 }
 
 .video-info h4 {
+  width: 280px;
   font-size: 14px;
   margin-bottom: 4px;
 }
