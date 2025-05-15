@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YouTube Clone</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="prevMonth">
+      <div class="calendar-header">
+        <h2 id="prevMonth"></h2>
+      </div>
+      <div class="calendar-days">
+        <div class="day">일</div>
+        <div class="day">월</div>
+        <div class="day">화</div>
+        <div class="day">수</div>
+        <div class="day">목</div>
+        <div class="day">금</div>
+        <div class="day">토</div>
+      </div>
+      <div class="calendar-dates" id="calendarDates"></div>
+    </div>
+
+    <button id="prevBtn" class = "btn">
+        <img src="prev.png">
+    </button>
+
+    <div class="currentMonth">
+      <div class="calendar-header">
+        <h2 id="currentMonth"></h2>
+      </div>
+      <div class="calendar-days">
+        <div class="day">일</div>
+        <div class="day">월</div>
+        <div class="day">화</div>
+        <div class="day">수</div>
+        <div class="day">목</div>
+        <div class="day">금</div>
+        <div class="day">토</div>
+      </div>
+      <div class="calendar-dates" id="calendarDates"></div>
+    </div>
+
+
+    <button id="nextBtn" class = "btn">
+        <img src = "next.png">
+    </button>
+
+    <div class="nextMonth">
+      <div class="calendar-header">
+        <h2 id="nextMonth"></h2>
+      </div>       
+      <div class="calendar-days">
+        <div class="day">일</div>
+        <div class="day">월</div>
+        <div class="day">화</div>
+        <div class="day">수</div>
+        <div class="day">목</div>
+        <div class="day">금</div>
+        <div class="day">토</div>
+      </div>
+      <div class="calendar-dates" id="calendarDates"></div>
+    </div>
+    <script src="calender.js"></script>
+</body>
+</html>
