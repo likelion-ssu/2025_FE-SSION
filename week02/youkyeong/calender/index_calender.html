@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calender</title>
+    <link rel="stylesheet" href="./style_calender.css" />
+    <link rel="icon" href="./calender_img.png" />
+  </head>
+
+  <body>
+    <div class="header">
+      <button id="prevBtn">◀ 이전</button>
+      <div class="main-title">
+        <span class="date-title" id="dateTitle"></span>
+        <select id="monthSelect" class="month-select"></select>
+      </div>
+      <button id="nextBtn">다음 ▶</button>
+    </div>
+
+    <div class="calendar" id="calendarGrid"></div>
+
+    <script src="calender.js"></script>
+  </body>
+</html>

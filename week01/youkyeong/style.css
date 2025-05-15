@@ -2,14 +2,17 @@ ul {
   list-style-type: none;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
   width: 240px;
   background-color: white;
   border-right: 1px solid #ddd;
-  padding: 20px;
-  box-sizing: border-box;
+  padding: 20px; /*이건 왜 있을까?*/
   position: fixed;
   top: 0;
   left: 0;
@@ -60,7 +63,7 @@ ul {
 /* 스토리 */
 .story-bar {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   overflow-x: auto;
   padding: 0px 37px;
   background-color: white;
@@ -74,13 +77,13 @@ ul {
   align-items: center;
   width: 66px;
   flex-shrink: 0;
+  /* flex 컨테이너 안에서 아이템이 줄어들지 않도록 막아줌 */
 }
 
 .story img {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  border: 2px solid #f03;
   object-fit: cover;
 }
 
@@ -91,7 +94,7 @@ ul {
 }
 
 .story-ring {
-  padding: 2px; /* 두께 조절 가능 */
+  padding: 2px;
   border-radius: 50%;
   background: conic-gradient(
     #de0046,
@@ -185,10 +188,7 @@ ul {
   font-size: 14px;
 }
 
-.time {
-  color: gray;
-}
-
+.time,
 .more {
   color: gray;
   cursor: pointer;
@@ -262,6 +262,7 @@ ul {
   color: #c7c7c7;
   margin-top: 50px;
 }
+
 .footer ul {
   display: flex;
   flex-wrap: wrap;
