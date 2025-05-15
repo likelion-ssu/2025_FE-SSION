@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>YouTube 랜딩페이지 클론코딩</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="left-section">
+        <img src = "https://img.icons8.com/?size=100&id=120374&format=png&color=000000" class="menu-btn"></img>
+        <img
+          src="https://www.logo.wine/a/logo/YouTube/YouTube-Logo.wine.svg"
+          class="logo"
+          alt="YouTube"
+        />
+      </div>
+      <div class="center-section">
+        <input type="text" placeholder="검색" class="search-input" />
+        <img src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" class="search-btn" alt = "검색버튼"/>
+        <img src="https://img.icons8.com/?size=100&id=59836&format=png&color=000000" class="mic-btn" alt="음성인식버튼"/>
+      </div>
+      <div class="right-section">
+        <div class="make-btn">
+        <img src="https://img.icons8.com/?size=100&id=11153&format=png&color=000000" class="make-icon" alt="만들기버튼"/>만들기
+        </div>
+        <img src="https://img.icons8.com/?size=100&id=68376&format=png&color=000000" class="bell" alt="알림">
+        <span class="profile">H</span>
+      </div>
+    </header>
+
+    <aside class="sidebar">
+      <div class ="btn-align">
+        <img src="https://img.icons8.com/?size=100&id=2797&format=png&color=000000" class="btn-icon" alt="홈아이콘"/>
+        <div class = "btn-text">홈</div>
+      </div>
+
+      <div class ="btn-align">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Youtube_shorts_icon.svg" class="btn-icon" alt="쇼츠아이콘"/>
+        <div class = "btn-text">shorts</div>
+      </div>
+      <div class ="btn-align">
+        <img src="https://img.icons8.com/?size=100&id=23030&format=png&color=000000" class="btn-icon" alt="구독아이콘"/>
+        <div class = "btn-text">구독</div>
+      </div>
+      <div class ="btn-align">
+        <img src="https://img.icons8.com/?size=100&id=EHtxO8ZmA602&format=png&color=000000" class="btn-icon" alt="뮤직아이콘"/>
+        <div class = "btn-text">YouTube Music</div>
+      </div>
+      <div class ="btn-align">
+        <img src="https://img.icons8.com/?size=100&id=60445&format=png&color=000000" class="btn-icon" alt="마이페이지아이콘"/>
+        <div class = "btn-text">마이페이지</div>
+      </div>
+      <div class ="btn-align">
+        <img src="https://img.icons8.com/?size=100&id=14100&format=png&color=000000" class="btn-icon" alt="다운로드아이콘"/>
+        <div class = "btn-text">오프라인 저장소</div>
+      </div>
+    </aside>
+    <div class="tab-bar">
+      <div class="tab active">전체</div>
+      <div class="tab">음악</div>
+      <div class="tab">게임</div>
+      <div class="tab">뉴스</div>
+      <div class="tab">믹스</div>
+      <div class="tab">라이브</div>
+      <div class="tab">수학</div>
+      <div class="tab">최근에 업로드된 동영상</div>
+      <div class="tab">감상한 동영상</div>
+      <div class="tab">새로운 맞춤 동영상</div>
+    </div>
+    <main class="main-content">
+      <div class="video-grid">
+        <div class="video-card">
+          <img src="https://i.ytimg.com/vi/bHvT0SNITuU/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAJj99uhuhQJbgvshxtWWo_RQJQow" class="thumbnail"/>
+          <div class="details">
+            <div class="channel-icon">C</div>
+            <div class="video-info">
+              <h4>[1H]🎧🌿비내리는 어느 타동숲 마을로🚖🌧♬♪ 【1Ｈ】ㅣ게임음악, 노동요, 집중 음악</h4>
+              <p>채널 이름</p>
+              <p>조회수 100만회 · 3일 전</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="video-card">
+          <img src="https://i.ytimg.com/vi/tzb2nGOwXpI/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAc3lAT-es6RwftIen8EuTHV13f4A" class="thumbnail"/>
+          <div class="details">
+            <div class="channel-icon">C</div>
+            <div class="video-info">
+              <h4>향수를 불러일으키는 포켓몬 음악은 나에게 매일 아침 활력을 주는 소중한 존재입니다.</h4>
+              <p>채널 이름</p>
+              <p>조회수 3천회 · 1주 전</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <img src="https://i.ytimg.com/vi/G6u601sxWq0/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDAtjq86R1gFp6bp6UwfePNpHNrpQ" class="thumbnail"/>
+          <div class="details">
+            <div class="channel-icon">C</div>
+            <div class="video-info">
+              <h4>편의점 다 털어가려는 도둑놈들과 한밤중 술래잡기🏪</h4>
+              <p>채널 이름</p>
+              <p>조회수 200만회 · 1일 전</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <img src="https://i.ytimg.com/vi/ViMpXYNfgVs/hq720.jpg?sqp=-oaymwFBCNAFEJQDSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGCAgcigRMA8=&rs=AOn4CLB2oWbmKe6CZ8o-EoVygcEZLKZghg" class="thumbnail"/>
+          <div class="details">
+            <div class="channel-icon">C</div>
+            <div class="video-info">
+              <h4>머리맡에 틀어놓고 눈을 감으면 잠이오는 메이플스토리 밝지만 조용한 브금모음 엘리니아,엘나스,리스항구,오르비스,아랫마을 (1시간뒤 검은화면전환)상</h4>
+              <p>채널 이름</p>
+              <p>조회수 10만회 · 6일 전</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <img src="https://i.ytimg.com/vi/rsF78J7lCIU/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBzYMG235dLnCkPmT95SbhK9wLNSA" class="thumbnail"/>
+          <div class="details">
+            <div class="channel-icon">C</div>
+            <div class="video-info">
+              <h4>화창한 날들 | 긍정적이고 평화로운 기분이 들게 하는 비디오 게임 음악 🍀</h4>
+              <p>채널 이름</p>
+              <p>조회수 1050만회 · 3일 전</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <img src="https://i.ytimg.com/vi/jC8IXwxBe_Q/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCONdzYfchhT_0mRsx__RHsKOCmaQ" class="thumbnail"/>
+          <div class="details">
+            <div class="channel-icon">C</div>
+            <div class="video-info">
+              <h4>마치 빛나는 아침 같은 느낌을 주는 잔잔하고 향수를 불러일으키는 포켓몬 음악</h4>
+              <p>채널 이름</p>
+              <p>조회수 20만회 · 2일 전</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <img src="https://i.ytimg.com/vi/CuseI8nhMxY/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAquE1Ptq8iYo6cWDAp5goS5AQCTQ" class="thumbnail"/>
+          <div class="details">
+            <div class="channel-icon">C</div>
+            <div class="video-info">
+              <h4>스물다섯 스물하나 OST 피아노 모음</h4>
+              <p>채널 이름</p>
+              <p>조회수 3만회 · 5일 전</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <img src="https://i.ytimg.com/vi/WVQ3E0pZAYA/hq720.jpg?sqp=-oaymwFBCNAFEJQDSFryq4qpAzMIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB8AEB-AH-CYAC0AWKAgwIABABGDIgZSg5MA8=&rs=AOn4CLAHmBYSLAXZK1seF36x3sh7UJrY-g" class="thumbnail"/>
+          <div class="details">
+            <div class="channel-icon">C</div>
+            <div class="video-info">
+              <h4>데이식스가 부르는 헤어짐｜데이식스 이별 발라드 노래 모음｜DAY6 playlist</h4>
+              <p>채널 이름</p>
+              <p>조회수 9만회 · 2일 전</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="video-card">
+          <img src="https://i.ytimg.com/vi/JPrKQ1gFwjE/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBYyX3h5SHRCZf4_-3Cqch6B1iI3g" class="thumbnail"/>
+          <div class="details">
+            <div class="channel-icon">C</div>
+            <div class="video-info">
+              <h4>𝗣𝗟𝗔𝗬𝗟𝗜𝗦𝗧 초록이 자라는 지금🌿 초여름 데일리 인디음악 | 잔나비, 카더가든, 하현상, 최유리 •••</h4>
+              <p>채널 이름</p>
+              <p>조회수 1002만회 · 3일 전</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </body>
+</html>
