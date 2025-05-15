@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heaseung_calendar</title>
+    <link rel="stylesheet" href="calendar.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+    <div id="calendar_main">
+        <section class="calendar_header">
+            <button id="prev_month"></button>
+            <div id="year_month"></div>
+            <button id="next_month"></button>
+        </section>
+
+        <section>
+            <table>
+                <tr class="day_indicator">
+                    <td>일</td>
+                    <td>월</td>
+                    <td>화</td>
+                    <td>수</td>
+                    <td>목</td>
+                    <td>금</td>
+                    <td>토</td>
+                </tr>
+                <tr id="week01"></tr>
+                <tr id="week02"></tr>
+                <tr id="week03"></tr>
+                <tr id="week04"></tr>
+                <tr id="week05"></tr>
+                <tr></tr id="week06">
+            </table>
+        </section>
+    </div>
+    
+    
+    <script src="calendar.js"></script>
+</body>
+</html>
