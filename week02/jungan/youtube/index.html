@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YouTube Clone</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <!-- header -->
+  <header class="header">
+    
+    <div class="header__left">
+      <i class="fas fa-bars"></i>
+      <img src="https://www.gstatic.com/youtube/img/branding/youtubelogo/svg/youtubelogo.svg" alt="YouTube Logo" class="logo"/>
+    </div>
+
+    <div class="header__center">
+      <div class = "searchBox">
+        <div class = "searchBoxInput">
+          <input class = "searchBoxInputComponent" placeholder="검색">
+        </div>
+        <button class = "searchBtn">
+          <img src="search.png">
+        </button>
+      </div>
+    </div>
+    <!-- <div class = "center">
+                    <div class = "searchBox">
+                        <div class = "searchBoxInput">
+                            <input class = "searchBoxInputComponent" placeholder="검색">
+                            <button class = "textInputAssistant">
+                                <img class = "textInputAssistantIcon" src = "https://www.gstatic.com/inputtools/images/tia.png">
+                            </button>
+                        </div>
+                        <button class = "searchBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path clip-rule="evenodd" d="M16.296 16.996a8 8 0 11.707-.708l3.909 3.91-.707.707-3.909-3.909zM18 11a7 7 0 00-14 0 7 7 0 1014 0z" fill-rule="evenodd"></path></svg>
+                        </button>
+                    </div>
+                    <button class = "voiceSearchBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path d="M12 3c-1.66 0-3 1.37-3 3.07v5.86c0 1.7 1.34 3.07 3 3.07s3-1.37 3-3.07V6.07C15 4.37 13.66 3 12 3zm6.5 9h-1c0 3.03-2.47 5.5-5.5 5.5S6.5 15.03 6.5 12h-1c0 3.24 2.39 5.93 5.5 6.41V21h2v-2.59c3.11-.48 5.5-3.17 5.5-6.41z"></path></svg>
+                    </button>
+                </div> -->
+    <div class="header__right">
+      <i class="fas fa-video"></i>
+      <i class="fas fa-bell" ></i>
+      <img src="user.png" alt="Profile" class="profile"/>
+    </div>
+    <!-- <div class = "end">
+                    <button class = "makeBtn">
+                        <span class = "plusBtnIcon">
+                            <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height = "24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;">
+                                <path d="M20 12h-8v8h-1v-8H3v-1h8V3h1v8h8v1z"></path>
+                            </svg>
+                        </span>
+                        <div class = "makeText">
+                            <span class = "makeTextContent">만들기</span>
+                        </div>
+                    </button>
+                    <button class = "noticeBtn">
+                        <div style="width: 100%; height: 100%; display: block; fill: currentcolor;"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="24" viewBox="0 0 24 24" width="24" focusable="false" aria-hidden="true" style="pointer-events: none; display: inherit; width: 100%; height: 100%;"><path clip-rule="evenodd" d="m13.497 4.898.053.8.694.4C15.596 6.878 16.5 8.334 16.5 10v2.892c0 .997.27 1.975.784 2.83L18.35 17.5H5.649l1.067-1.778c.513-.855.784-1.833.784-2.83V10c0-1.666.904-3.122 2.256-3.902l.694-.4.053-.8c.052-.78.703-1.398 1.497-1.398.794 0 1.445.618 1.497 1.398ZM6 10c0-2.224 1.21-4.165 3.007-5.201C9.11 3.236 10.41 2 12 2c1.59 0 2.89 1.236 2.993 2.799C16.79 5.835 18 7.776 18 10v2.892c0 .725.197 1.436.57 2.058l1.521 2.535c.4.667-.08 1.515-.857 1.515H15c0 .796-.316 1.559-.879 2.121-.562.563-1.325.879-2.121.879s-1.559-.316-2.121-.879C9.316 20.56 9 19.796 9 19H4.766c-.777 0-1.257-.848-.857-1.515L5.43 14.95c.373-.622.57-1.333.57-2.058V10Zm4.5 9c0 .398.158.78.44 1.06.28.282.662.44 1.06.44s.78-.158 1.06-.44c.282-.28.44-.662.44-1.06h-3Z" fill-rule="evenodd"></path></svg></div>
+                    </button>
+                    <img src="user.png" alt="Profile" class="profile"/>
+                </div> -->
+  </header>
+
+  <!-- sidebar -->
+  <aside class="sidebar">
+    <!-- 섹션 1: 기본 메뉴 -->
+    <div class="sidebar__section">
+      <div class="sidebar__item active">
+        <img src="home.png" alt="홈">
+        <span>홈</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="shorts.jpg" alt="Shorts">
+        <span>Shorts</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="subscribe.png" alt="구독">
+        <span>구독</span>
+        <span class="dot"></span>
+      </div>
+    </div>
+    <hr />
+  
+    <!-- 섹션 2: 내 페이지 -->
+    <div class="sidebar__section">
+      <div class="sidebar__title">내 페이지 <span>›</span></div>
+      <div class="sidebar__item">
+        <img src="history.png" alt="시청 기록">
+        <span>시청 기록</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="playlist.png" alt="재생목록">
+        <span>재생목록</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="myvideo.png" alt="내 동영상">
+        <span>내 동영상</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="learning.png" alt="내 학습 프로그램">
+        <span>내 학습 프로그램</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="watchlater.png" alt="나중에 볼 동영상">
+        <span>나중에 볼 동영상</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="like.png" alt="좋아요 표시한 동영상">
+        <span>좋아요 표시한 동영상</span>
+      </div>
+    </div>
+    <hr />
+  
+    <!-- 섹션 3: 구독 -->
+    <div class="sidebar__section">
+      <div class="sidebar__title">구독</div>
+      <div class="sidebar__subscription">
+        <img class="channel-img" src="user.png" alt="COLORS">
+        <span>어쩌고저쩌고채널널</span>
+      </div>
+      <div class="sidebar__subscription">
+        <img class="channel-img" src="user.png" alt="Chosen Family">
+        <span>어쩌고저쩌고채널2</span>
+        <span class="dot"></span>
+      </div>
+      <!-- 더 추가 가능 -->
+
+      <!-- 탐색 섹션
+  <hr>
+  <div class="section-title">탐색</div>
+  <div class="sidebar-item">인기 급상승</div>
+  <div class="sidebar-item">쇼핑</div>
+  <div class="sidebar-item">음악</div>
+  <div class="sidebar-item">영화</div>
+  <div class="sidebar-item">실시간</div>
+  <div class="sidebar-item">게임</div>
+  <div class="sidebar-item">스포츠</div>
+  <div class="sidebar-item">학습 프로그램</div>
+  <div class="sidebar-item">팟캐스트</div> -->
+
+  <!-- 섹션 2: 내 페이지 -->
+    <div class="sidebar__section">
+      <div class="sidebar__title"> 탐색 </div>
+      <div class="sidebar__item">
+        <img src="hot.png" alt="시청 기록">
+        <span>인기 급상승</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="shopping.png" alt="재생목록">
+        <span>쇼핑</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="music.png" alt="내 동영상">
+        <span>음악</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="movie.png" alt="내 학습 프로그램">
+        <span>영화</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="live.png" alt="나중에 볼 동영상">
+        <span>실시간</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="game.png" alt="좋아요 표시한 동영상">
+        <span>게임</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="sports.png" alt="좋아요 표시한 동영상">
+        <span>스포츠</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="learning.png" alt="좋아요 표시한 동영상">
+        <span>학습 프로그램</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="podcast.png" alt="좋아요 표시한 동영상">
+        <span>팟캐스트</span>
+      </div>
+    </div>
+    <hr />
+  <!-- YouTube 더보기 섹션 -->
+  <!-- <hr>
+  <div class="section-title">YouTube 더보기</div>
+  <div class="sidebar-item">YouTube Premium</div>
+  <div class="sidebar-item">YouTube 스튜디오</div>
+  <div class="sidebar-item">YouTube Music</div>
+  <div class="sidebar-item">YouTube Kids</div> -->
+
+  <div class="sidebar__section">
+      <div class="sidebar__title">YouTube 더보기</div>
+      <div class="sidebar__item">
+        <img src="premium.png" alt="시청 기록">
+        <span>YouTube Premium</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="studio.png" alt="재생목록">
+        <span>YouTube 스튜디오</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="ytmusic.png" alt="내 동영상">
+        <span>YouTube Music</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="kids.png" alt="내 학습 프로그램">
+        <span>YouTube Kids</span>
+      </div>
+    </div>
+    <hr />
+
+  <!-- 설정 섹션 -->
+  <!-- <hr>
+  <div class="sidebar-item">설정</div>
+  <div class="sidebar-item">신고 기록</div>
+  <div class="sidebar-item">고객센터</div>
+  <div class="sidebar-item">의견 보내기</div>
+    </div>
+   -->
+
+  <div class="sidebar__section">
+      <div class="sidebar__item">
+        <img src="setting.png" alt="시청 기록">
+        <span>설정</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="flag.png" alt="재생목록">
+        <span>신고 기록</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="question.png" alt="내 동영상">
+        <span>고객센터</span>
+      </div>
+      <div class="sidebar__item">
+        <img src="!.png" alt="내 학습 프로그램">
+        <span>의견 보내기</span>
+      </div>
+    </div>
+    <hr />
+  </aside>
+
+  <!-- main content -->
+  <main class="videos">
+    <div class="filter-bar">
+        <button class="filter-btn active">전체</button>
+        <button class="filter-btn">음악</button>
+        <button class="filter-btn">게임</button>
+        <button class="filter-btn">뉴스</button>
+        <button class="filter-btn">라이브</button>
+        <button class="filter-btn">스포츠</button>
+        <button class="filter-btn">학습</button>
+        <button class="filter-btn">최근 업로드</button>
+      </div>
+      
+    <div class="videos__container">
+      <!-- 비디오 카드 예시 (6개) -->
+      <div class="video">
+        <img src="videoimg.png" alt="영상 썸네일" />
+        <div class="video__info">
+          <img src="user.png" alt="채널 아이콘" />
+          <div>
+            <h4>멋진 유튜브 영상 제목</h4>
+            <p>유튜브 채널명</p>
+            <p>조회수 1.2만회 · 2일 전</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="video">
+        <img src="videoimg.png" alt="영상 썸네일" />
+        <div class="video__info">
+          <img src="user.png" alt="채널 아이콘" />
+          <div>
+            <h4>멋진 유튜브 영상 제목</h4>
+            <p>유튜브 채널명</p>
+            <p>조회수 1.2만회 · 2일 전</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="video">
+        <img src="videoimg.png" alt="영상 썸네일" />
+        <div class="video__info">
+          <img src="user.png" alt="채널 아이콘" />
+          <div>
+            <h4>멋진 유튜브 영상 제목</h4>
+            <p>유튜브 채널명</p>
+            <p>조회수 1.2만회 · 2일 전</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="video">
+        <img src="videoimg.png" alt="영상 썸네일" />
+        <div class="video__info">
+          <img src="user.png" alt="채널 아이콘" />
+          <div>
+            <h4>멋진 유튜브 영상 제목</h4>
+            <p>유튜브 채널명</p>
+            <p>조회수 1.2만회 · 2일 전</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="video">
+        <img src="videoimg.png" alt="영상 썸네일" />
+        <div class="video__info">
+          <img src="user.png" alt="채널 아이콘" />
+          <div>
+            <h4>멋진 유튜브 영상 제목</h4>
+            <p>유튜브 채널명</p>
+            <p>조회수 1.2만회 · 2일 전</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="video">
+        <img src="videoimg.png" alt="영상 썸네일" />
+        <div class="video__info">
+          <img src="user.png" alt="채널 아이콘" />
+          <div>
+            <h4>멋진 유튜브 영상 제목</h4>
+            <p>유튜브 채널명</p>
+            <p>조회수 1.2만회 · 2일 전</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="video">
+        <img src="videoimg.png" alt="영상 썸네일" />
+        <div class="video__info">
+          <img src="user.png" alt="채널 아이콘" />
+          <div>
+            <h4>멋진 유튜브 영상 제목</h4>
+            <p>유튜브 채널명</p>
+            <p>조회수 1.2만회 · 2일 전</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="video">
+        <img src="videoimg.png" alt="영상 썸네일" />
+        <div class="video__info">
+          <img src="user.png" alt="채널 아이콘" />
+          <div>
+            <h4>멋진 유튜브 영상 제목</h4>
+            <p>유튜브 채널명</p>
+            <p>조회수 1.2만회 · 2일 전</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="video">
+        <img src="videoimg.png" alt="영상 썸네일" />
+        <div class="video__info">
+          <img src="user.png" alt="채널 아이콘" />
+          <div>
+            <h4>멋진 유튜브 영상 제목</h4>
+            <p>유튜브 채널명</p>
+            <p>조회수 1.2만회 · 2일 전</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="video">
+        <img src="videoimg.png" alt="영상 썸네일" />
+        <div class="video__info">
+          <img src="user.png" alt="채널 아이콘" />
+          <div>
+            <h4>멋진 유튜브 영상 제목</h4>
+            <p>유튜브 채널명</p>
+            <p>조회수 1.2만회 · 2일 전</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="video">
+        <img src="videoimg.png" alt="영상 썸네일" />
+        <div class="video__info">
+          <img src="user.png" alt="채널 아이콘" />
+          <div>
+            <h4>멋진 유튜브 영상 제목</h4>
+            <p>유튜브 채널명</p>
+            <p>조회수 1.2만회 · 2일 전</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="video">
+        <img src="videoimg.png" alt="영상 썸네일" />
+        <div class="video__info">
+          <img src="user.png" alt="채널 아이콘" />
+          <div>
+            <h4>멋진 유튜브 영상 제목</h4>
+            <p>유튜브 채널명</p>
+            <p>조회수 1.2만회 · 2일 전</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+</html>
