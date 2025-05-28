@@ -1,0 +1,253 @@
+*{
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+    overflow-x: hidden;
+    list-style: none;
+    text-decoration: none;
+}
+
+.side-bar{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 25px;
+    padding-right: 90px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    border-right: 0.3px solid gray;
+}
+
+.main-logo{
+    width: 140px;
+    height: 50px;
+}
+
+.story-bar{
+    position:relative;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    width:50vw;
+    top: 30px;
+    left: 20vw;
+    
+}
+
+.story-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border:3px solid hotpink;
+    margin-bottom: 0;
+}
+
+.story-name{
+    margin-top: 0;
+}
+
+.story-container{
+    text-align: center;
+    gap: 0;
+}
+
+.feed{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    top: 9vh;
+    left:27.5vw;
+    width:35vw;
+}
+
+.feed-profile-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.post{
+    display: flex;
+    align-items: center;  
+    justify-content: space-between; 
+    width: 100%;
+    gap: 10px;  
+}
+
+.post-info{
+    gap: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.post button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.feed p{
+    margin-top: 0;
+}
+
+.feed-img{
+    width: 35vw;
+    height: 20vw;
+    margin-top: 15px;
+}
+
+.icon-img{
+    width: 25px;
+    height: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.icons{
+    display: flex;
+    gap:10px
+}
+
+.comment{
+    display: flex;
+    gap: 10px;
+}
+
+.user-profile-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.name{
+    display: flex;
+    flex-direction: column;
+    font-size:14px;
+    gap:2px;
+}
+
+.user{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:10px;
+    margin-bottom: 10px;
+}
+
+.profiles{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding:20;
+    left: 73vw;
+    top: 43px;
+    width: 20vw;
+    height: auto;
+}
+.for-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 14px;
+  }
+
+.see-all{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.recommandations ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.recommandations li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    margin-bottom: 10px;
+}
+
+.recommandations button {
+    background: none;
+    border: none;
+    color: #1da1f2;
+    cursor: pointer;
+  }
+
+.user-info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.recommend-profile-img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-profile{
+    display: flex;
+    align-items: center;  
+    justify-content: space-between; 
+    gap: 10px;  
+    padding-bottom: 10px;
+}
+
+.user-profile button{
+    background: none;
+    border: none;
+    color: #1da1f2;
+    cursor: pointer;
+}
+
+.recommandations{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.site-info{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 20vw;
+    left: 72vw;
+    top: -95px;
+    margin-top: 10px;
+    height: auto;
+    margin-left: 0;
+}
+
+.info-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 17px;
+}
+
+.site-info p{
+    color: gray;
+    font-size: 11px;
+}
