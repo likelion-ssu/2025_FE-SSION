@@ -1,7 +1,10 @@
 import { useState } from 'react';
-import PostWrite from './components/PostWrite';
-import PostList from './components/PostList';
-import Post from './components/Post';
+import PostWrite from './components/page/PostWrite';
+import PostList from './components/list/PostList';
+import Post from './components/page/Post';
+import CommentList from './components/list/CommentList';
+import CommentWrite from './components/page/CommentWrite';
+
 import styled from 'styled-components';
 
 const Title = styled.h1`
@@ -33,7 +36,7 @@ function App() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <Title>나만의 블로그 ✍️</Title>
+      <Title>미니 블로그 ✍️</Title>
       {selectedPostIdx === null ? (
         <>
           <PostWrite onAddPost={addPost} />

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CommentList from './CommentList';
+import CommentList from '../list/CommentList';
 import CommentWrite from './CommentWrite';
 
 const PostContainer = styled.div`
@@ -37,6 +37,15 @@ const BackButton = styled.button`
 `;
 
 function Post({ post, onBack, onAddComment }) {
+  if (!post) {
+    return (
+      <PostContainer>
+        <Title>글을 불러올 수 없습니다.</Title>
+        <BackButton onClick={onBack}>← 목록으로</BackButton>
+      </PostContainer>
+    );
+  }
+
   return (
     <PostContainer>
       <Title>{post.title}</Title>

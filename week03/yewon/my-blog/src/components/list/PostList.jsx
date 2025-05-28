@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PostListItem from './PostListItem';
 
 const ListContainer = styled.div`
   margin-top: 24px;
@@ -30,9 +31,11 @@ function PostList({ posts, onSelect }) {
       <SectionTitle>📚 글 목록</SectionTitle>
       {posts.length === 0 && <p>작성된 글이 없습니다.</p>}
       {posts.map((post, idx) => (
-        <PostItem key={idx} onClick={() => onSelect(idx)}>
-          {post.title}
-        </PostItem>
+        <PostListItem
+          key={idx}
+          title={post.title}
+          onClick={() => onSelect(idx)}
+        />
       ))}
     </ListContainer>
   );
