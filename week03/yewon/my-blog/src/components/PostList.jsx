@@ -1,19 +1,41 @@
-function PostList({ posts, onSelect }) {
-    return (
-      <div>
-        <h2>📚 글 목록</h2>
-        {posts.map((post, idx) => (
-          <div
-            key={idx}
-            onClick={() => onSelect(idx)}
-            style={{ border: '1px solid #ccc', padding: '10px', margin: '5px 0', cursor: 'pointer' }}
-          >
-            {post.title}
-          </div>
-        ))}
-      </div>
-    );
+import styled from 'styled-components';
+
+const ListContainer = styled.div`
+  margin-top: 24px;
+`;
+
+const SectionTitle = styled.h2`
+  margin: 40px 0 16px;
+`;
+
+const PostItem = styled.div`
+  border: 1px solid #ddd;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: #f7f7f7;
   }
-  
-  export default PostList;
-  
+`;
+
+function PostList({ posts, onSelect }) {
+  return (
+    <ListContainer>
+      <SectionTitle>📚 글 목록</SectionTitle>
+      {posts.length === 0 && <p>작성된 글이 없습니다.</p>}
+      {posts.map((post, idx) => (
+        <PostItem key={idx} onClick={() => onSelect(idx)}>
+          {post.title}
+        </PostItem>
+      ))}
+    </ListContainer>
+  );
+}
+
+export default PostList;

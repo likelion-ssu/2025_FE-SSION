@@ -2,6 +2,16 @@ import { useState } from 'react';
 import PostWrite from './components/PostWrite';
 import PostList from './components/PostList';
 import Post from './components/Post';
+import styled from 'styled-components';
+
+const Title = styled.h1`
+  font-size: 28px;
+  margin-bottom: 32px;
+`;
+
+const SectionTitle = styled.h2`
+  margin: 40px 0 16px;
+`;
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -23,7 +33,7 @@ function App() {
 
   return (
     <div style={{ padding: '20px' }}>
-      <h1>나만의 블로그 ✍️</h1>
+      <Title>나만의 블로그 ✍️</Title>
       {selectedPostIdx === null ? (
         <>
           <PostWrite onAddPost={addPost} />

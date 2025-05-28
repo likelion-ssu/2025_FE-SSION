@@ -1,4 +1,29 @@
 import { useState } from 'react';
+import styled from 'styled-components';
+
+const InputContainer = styled.div`
+  margin-top: 16px;
+`;
+
+const Input = styled.input`
+  width: 280px;
+  padding: 8px;
+  font-size: 14px;
+  margin-right: 8px;
+`;
+
+const Button = styled.button`
+  padding: 8px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #218838;
+  }
+`;
 
 function CommentWrite({ onAddComment }) {
   const [comment, setComment] = useState('');
@@ -10,15 +35,14 @@ function CommentWrite({ onAddComment }) {
   };
 
   return (
-    <div>
-      <input
+    <InputContainer>
+      <Input
         value={comment}
         onChange={(e) => setComment(e.target.value)}
         placeholder="댓글 입력"
-        style={{ width: '300px' }}
       />
-      <button onClick={handleSubmit}>작성</button>
-    </div>
+      <Button onClick={handleSubmit}>작성</Button>
+    </InputContainer>
   );
 }
 
