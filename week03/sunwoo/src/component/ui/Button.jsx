@@ -11,10 +11,11 @@ const StyledButton = styled.div`
   font-weight: 500;
 `;
 
-const Button = ({ title }) => {
+const Button = (props) => {
+  const { title } = props;
   return (
     <div>
-      <StyledButton>{title}</StyledButton>
+      <StyledButton>{title || "button"}</StyledButton>
     </div>
   );
 };
