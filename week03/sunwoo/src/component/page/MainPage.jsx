@@ -17,7 +17,7 @@ const MainPage = () => {
       <Button title="글 작성하기"></Button>
       <TextInput placeholder="글을 작성해 주세요.." />
       <PostList />
-      <CommentList></CommentList>
+      <CommentList />
     </MainContainer>
   );
 };
