@@ -4,7 +4,7 @@ import PostListItem from "./PostListItem";
 const PostList = () => {
   return (
     <div>
-      포스트 리스트임~
+      포스트 리스트 컴포넌트
       <PostListItem />
     </div>
   );
