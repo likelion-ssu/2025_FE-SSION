@@ -1,8 +1,31 @@
 import { useState } from 'react';
 import PostList from './component/list/postList';
 import PostWrite from './component/page/postWrite';
-import BackButton from './component/ui/BackButton';
 import Post from './component/page/post';
+import styled from 'styled-components';
+import Button from './component/ui/Button';
+
+const Wrapper = styled.div`
+  max-width: 600px;
+  margin: 0 auto; /* 중앙 정렬 */
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  `;
+
+const PostDetail = styled.div`
+  margin-top: 24px;
+  text-align: left;
+  padding: 16px;
+  border-top: 1px solid #ccc;
+
+  h2 {
+    margin-bottom: 8px;
+  }
+`;
+
 
 const App = () => {
   const [posts, setPosts] = useState([
@@ -33,28 +56,28 @@ const App = () => {
   const selectedPost = posts.find((post) => post.id === selectedPostId);
 
   return (
-    <div style={{ padding: '24px' }}>
+    <Wrapper>
       <h1>정안이의 블로그</h1>
       
 
       {isWriting ? (
         <>
         <PostWrite onSave={handleAddPost} />
-        <button onClick={backButton}>목록</button>
+        <Button onClick={backButton}>목록</Button>
         </>
       ) : selectedPost ? (
-        <>
+        <PostDetail>
         <Post post={selectedPost} />
-        <button onClick={backButton}>목록</button>
-        </>
+        <Button onClick={backButton}>목록</Button>
+        </PostDetail>
       ) : (
       <>
-      <button onClick={handleWriteClick} style={{ marginBottom: '16px' }}>
+      <Button onClick={handleWriteClick} style={{ marginBottom: '16px' }}>
             글 작성
-      </button><PostList posts={posts} onSelectPost={handleSelectPost} />
+      </Button><PostList posts={posts} onSelectPost={handleSelectPost} />
       </>
       )}
-    </div>
+    </Wrapper>
   );
 };
 

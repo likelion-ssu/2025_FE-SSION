@@ -11,8 +11,7 @@ export default function CommentListItem({comment}) {
         borderRadius: '8px',
       }}
     >
-      <h4>{comment.name}</h4>
-      <p>{comment.content}</p>
+    <p>{comment.content}</p>
     </div>
   )
 }
