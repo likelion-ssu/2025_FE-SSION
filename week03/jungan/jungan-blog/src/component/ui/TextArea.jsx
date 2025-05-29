@@ -9,7 +9,7 @@ const StyledTextarea = styled.textarea`
   width: ${(props) => props.width || '500px'}; 
   height: ${(props) => props.height || '100px'}; 
   resize: vertical; /* 사용자가 크기 조절 가능 */
-  min-height: 100px;
+  min-height: 60px;
 
   &:focus {
     outline: none;

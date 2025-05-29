@@ -23,7 +23,7 @@ export default function CommentWrite({ onSave }) {
           value={content}
           onChange={(e) => setContent(e.target.value)}
           rows={5}
-          style={{ padding: '8px', fontSize: '16px' }}
+          height='60px'
         />
         <Button type="submit" style={{ padding: '10px', fontSize: '16px', width: "200px" }}>
           댓글 저장

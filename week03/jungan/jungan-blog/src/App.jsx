@@ -57,7 +57,7 @@ const App = () => {
 
   return (
     <Wrapper>
-      <h1>정안이의 블로그</h1>
+      <h1>정안's blog</h1>
       
 
       {isWriting ? (

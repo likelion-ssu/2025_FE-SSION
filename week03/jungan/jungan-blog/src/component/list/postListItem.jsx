@@ -8,6 +8,7 @@ const PostListItem = ({ post, onClick }) => {
         marginBottom: '8px',
         cursor: 'pointer',
         borderRadius: '8px',
+        width: '800px'
       }}
     >
       <h3>{post.title}</h3>
