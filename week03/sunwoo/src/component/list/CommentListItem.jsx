@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const CommentItem = styled.div`
   padding: 25px 15px;
-  border: 1px solid #52b000;
+  border: 1px solid #212121;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 500;
