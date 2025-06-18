@@ -1,11 +1,14 @@
 import React from "react";
 import PostListItem from "./PostListItem";
 
-const PostList = () => {
+const PostList = (props) => {
+  const { posts } = props;
+
   return (
     <div>
-      포스트 리스트 컴포넌트
-      <PostListItem />
+      {posts.map((post) => {
+        return <PostListItem key={post.id} post={post} />;
+      })}
     </div>
   );
 };

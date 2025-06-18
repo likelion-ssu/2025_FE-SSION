@@ -11,10 +11,10 @@ const PostItem = styled.div`
 `;
 
 const PostListItem = (props) => {
-  const { onClick } = props;
+  const { post } = props;
   return (
     <>
-      <PostItem onClick={onClick}>게시물1</PostItem>
+      <PostItem>{post.title}</PostItem>
     </>
   );
 };
