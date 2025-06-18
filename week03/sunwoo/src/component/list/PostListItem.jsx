@@ -10,11 +10,11 @@ const PostItem = styled.div`
   margin: 10px 0px;
 `;
 
-const PostListItem = () => {
+const PostListItem = (props) => {
+  const { onClick } = props;
   return (
     <>
-      <PostItem>게시물1</PostItem>
-      <PostItem>게시물2</PostItem>
+      <PostItem onClick={onClick}>게시물1</PostItem>
     </>
   );
 };
