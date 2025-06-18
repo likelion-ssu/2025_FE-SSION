@@ -12,10 +12,10 @@ const StyledButton = styled.div`
 `;
 
 const Button = (props) => {
-  const { title } = props;
+  const { title, onClick } = props;
   return (
     <div>
-      <StyledButton>{title || "button"}</StyledButton>
+      <StyledButton onClick={onClick}>{title || "button"}</StyledButton>
     </div>
   );
 };
