@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const PostItem = styled.div`
   padding: 25px 15px;
@@ -12,9 +13,16 @@ const PostItem = styled.div`
 
 const PostListItem = (props) => {
   const { post } = props;
+
+  const navigate = useNavigate();
+
+  const moveContentViewPage = () => {
+    navigate(`/postViewPage/${post.id}`);
+  };
+
   return (
     <>
-      <PostItem>{post.title}</PostItem>
+      <PostItem onClick={moveContentViewPage}>{post.title}</PostItem>
     </>
   );
 };

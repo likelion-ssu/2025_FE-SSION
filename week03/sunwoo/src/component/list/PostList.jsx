@@ -7,7 +7,7 @@ const PostList = (props) => {
   return (
     <div>
       {posts.map((post) => {
-        return <PostListItem key={post.id} post={post} />;
+        return <PostListItem key={post.id} postID={post.id} post={post} />;
       })}
     </div>
   );
