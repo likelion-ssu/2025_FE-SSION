@@ -2,10 +2,11 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "../../../data.json";
+import CommentListItem from "../list/CommentListItem";
 
 const CommentItem = styled.div`
   padding: 25px 15px;
-  border: 1px solid #212121;
+  border: 1px solid #52b000;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 500;
@@ -14,6 +15,7 @@ const CommentItem = styled.div`
 
 const ContentItem = styled(CommentItem)`
   padding: 0px 20px 20px 20px;
+  border: 1px solid #79d12c;
 `;
 
 const PostViewPage = () => {
@@ -30,7 +32,12 @@ const PostViewPage = () => {
       </ContentItem>
       <div style={{ marginBottom: "8px" }}>댓글</div>
       {posts[params.id - 1].comments.map((comment) => {
-        return <CommentItem key={comment.id}>{comment.content}</CommentItem>;
+        return (
+          <CommentListItem
+            key={comment.id}
+            comment={comment.content}
+          ></CommentListItem>
+        );
       })}
     </div>
   );
