@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "../../../data.json";
 import CommentListItem from "../list/CommentListItem";
+import TextInput from "../ui/TextInput";
 
 const CommentItem = styled.div`
   padding: 25px 15px;
@@ -39,6 +40,7 @@ const PostViewPage = () => {
           ></CommentListItem>
         );
       })}
+      <TextInput placeholder={"댓글을 입력해 주세요"} />
     </div>
   );
 };
