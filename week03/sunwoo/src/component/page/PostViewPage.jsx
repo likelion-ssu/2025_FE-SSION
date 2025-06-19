@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "../../../data.json";
 import CommentListItem from "../list/CommentListItem";
@@ -24,9 +24,15 @@ const PostViewPage = () => {
   const posts = data;
 
   const params = useParams();
+  const nav = useNavigate();
+
+  const moveBack = () => {
+    nav("/");
+  };
 
   return (
     <div>
+      <Button title={"뒤로가기"} onClick={moveBack} />
       <ContentItem>
         <h3>{posts[params.id - 1].title}</h3>
         {posts[params.id - 1].content}
