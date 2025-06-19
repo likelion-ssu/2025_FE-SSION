@@ -4,6 +4,7 @@ import styled from "styled-components";
 import data from "../../../data.json";
 import CommentListItem from "../list/CommentListItem";
 import TextInput from "../ui/TextInput";
+import Button from "../ui/Button";
 
 const CommentItem = styled.div`
   padding: 25px 15px;
@@ -26,7 +27,6 @@ const PostViewPage = () => {
 
   return (
     <div>
-      {params.id}번째 포스트 뷰 페이지입니다.
       <ContentItem>
         <h3>{posts[params.id - 1].title}</h3>
         {posts[params.id - 1].content}
@@ -41,6 +41,8 @@ const PostViewPage = () => {
         );
       })}
       <TextInput height={60} placeholder={"댓글을 입력해 주세요"} />
+      <div style={{ height: "5px" }} />
+      <Button title={"댓글 작성하기"} />
     </div>
   );
 };
