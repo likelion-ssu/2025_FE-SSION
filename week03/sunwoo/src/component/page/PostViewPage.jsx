@@ -40,7 +40,7 @@ const PostViewPage = () => {
           ></CommentListItem>
         );
       })}
-      <TextInput placeholder={"댓글을 입력해 주세요"} />
+      <TextInput height={40} placeholder={"댓글을 입력해 주세요"} />
     </div>
   );
 };

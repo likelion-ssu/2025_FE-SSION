@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledTextInput = styled.textarea`
   width: 100%;
-  ${(props) => props.height && `height: ${props.height}px`}
+  ${(props) => props.height && `height: ${props.height}px;`}
   outline: none;
   padding: 10px;
   resize: none;
