@@ -16,10 +16,10 @@ const Wrapper = styled.div`
 `;
 
 function PostList(props){
-    const { post , onClickItem } = props;
+    const { posts , onClickItem } = props;
     return(
         <Wrapper>
-            {post.map((post)=>{
+            {posts.map((post)=>{
                 return(
                     <PostListItem key={post.id} post = {post} onClick={() => {onClickItem(post);}}/>
                 );
