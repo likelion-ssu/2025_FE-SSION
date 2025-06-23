@@ -71,7 +71,7 @@ function LoginPage() {
 
   const handleLogin = () => {
     //로그인 로직
-    console.log("로그인 시도!");
+    alert("로그인 시도!");
   };
 
   const handleKeyDown = (e) => {
