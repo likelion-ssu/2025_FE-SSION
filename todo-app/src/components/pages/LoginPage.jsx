@@ -53,7 +53,7 @@ const Logo = styled.div`
 `;
 
 const LogoText = styled.p`
-  font-size: 25px;
+  font-size: 27px;
   font-weight: 500;
 `;
 const Img = styled.img`
@@ -67,8 +67,16 @@ const Mention = styled.p`
 function LoginPage() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
+
+  const handleLogin = () => {
+    //로그인 로직
+    alert("로그인 시도!");
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key == "Enter") handleLogin();
+  };
 
   return (
     <Wrapper>
@@ -86,6 +94,7 @@ function LoginPage() {
             type="text"
             value={id}
             onChange={(e) => setId(e.target.value)}
+            onKeyDown={handleKeyDown}
             placeholder="아이디를 입력하세요"
           />
         </InputGroup>
@@ -95,6 +104,7 @@ function LoginPage() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            onKeyDown={handleKeyDown}
             placeholder="비밀번호를 입력하세요"
           />
         </InputGroup>

@@ -14,12 +14,13 @@ const StyledTextarea = styled.input`
 `;
 
 function InfoInput(props) {
-  const { type = "text", value, onChange, placeholder } = props;
+  const { type = "text", value, onChange, onKeyDown, placeholder } = props;
   return (
     <StyledTextarea
       type={type}
       value={value}
       onChange={onChange}
+      onKeyDown={onKeyDown}
       placeholder={placeholder}
     ></StyledTextarea>
   );
