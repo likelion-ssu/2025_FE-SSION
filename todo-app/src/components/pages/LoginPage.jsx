@@ -67,6 +67,9 @@ const Mention = styled.p`
 function LoginPage() {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
   return (
     <Wrapper>
       <Upper>
@@ -95,8 +98,19 @@ function LoginPage() {
             placeholder="비밀번호를 입력하세요"
           />
         </InputGroup>
-        <Button title="로그인" backgroundColor="#ffdda9" />
-        <Button title="회원가입" />
+        <Button
+          title="로그인"
+          backgroundColor="#ffdda9"
+          onClick={() => {
+            navigate("/main-page");
+          }}
+        />
+        <Button
+          title="회원가입"
+          onClick={() => {
+            navigate("/sign-up");
+          }}
+        />
       </Container>
     </Wrapper>
   );
