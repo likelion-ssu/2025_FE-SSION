@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "JSX 문법에서 주의해야 할 점은?",
+    "content": "반드시 부모 요소 하나가 감싸는 형태여야 합니다.",
+    "comments": ["좋은 글이네요!", "잘 보고 갑니다~"]
+  },
+  {
+    "id": 2,
+    "title": "리액트 Hook에는 무슨 함수가 있나요?",
+    "content": "useState, useEffect, useRef가 있습니다.",
+    "comments": ["너무 어려워요"]
+  },
+  {
+    "id": 3,
+    "title": "퉁퉁이 엄마의 이름은?",
+    "content": "모퉁이입니다....",
+    "comments": ["와...."]
+  },
+  {
+    "id": 4,
+    "title": "가장 급하게 가는 교회는?",
+    "content": "응급처치입니다....",
+    "comments": ["Wow!!"]
+  }
+]
