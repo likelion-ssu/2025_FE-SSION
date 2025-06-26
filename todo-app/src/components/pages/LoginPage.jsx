@@ -72,19 +72,31 @@ function LoginPage() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
+    if (!username || !password) {
+      alert("아이디와 비밀번호를 모두 입력해주세요");
+      return;
+    }
+
     try {
-      const res = await axios.post(`${BASE_URL}/api/users/login/`, {
-        username,
-        password,
-      });
+      const res = await axios.post(
+        `${BASE_URL}/api/users/login/`,
+        {
+          username,
+          password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       const userId = res.data.user_id;
       localStorage.setItem("user_id", userId);
       alert("로그인 성공!");
       navigate("/main-page");
     } catch (error) {
-      alert("로그인 실패");
-      console.log(error);
+      alert("로그인 실패", error);
     }
   };
 
