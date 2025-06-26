@@ -3,6 +3,8 @@ import styled from "styled-components";
 import Button from "../ui/Button";
 import InfoInput from "../ui/InfoInput";
 import { useNavigate } from "react-router-dom";
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+import axios from "axios";
 
 const Wrapper = styled.div`
   background-color: #fff9ef;
@@ -65,13 +67,25 @@ const Mention = styled.p`
 `;
 
 function LoginPage() {
-  const [id, setId] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    //로그인 로직
-    alert("로그인 시도!");
+  const handleLogin = async () => {
+    try {
+      const res = await axios.post(`${BASE_URL}/api/users/login/`, {
+        username,
+        password,
+      });
+
+      const userId = res.data.user_id;
+      localStorage.setItem("user_id", userId);
+      alert("로그인 성공!");
+      navigate("/main-page");
+    } catch (error) {
+      alert("로그인 실패");
+      console.log(error);
+    }
   };
 
   const handleKeyDown = (e) => {
@@ -92,8 +106,8 @@ function LoginPage() {
           <Logintext>아이디</Logintext>
           <InfoInput
             type="text"
-            value={id}
-            onChange={(e) => setId(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="아이디를 입력하세요"
           />
@@ -111,9 +125,7 @@ function LoginPage() {
         <Button
           title="로그인"
           backgroundColor="#ffdda9"
-          onClick={() => {
-            navigate("/main-page");
-          }}
+          onClick={handleLogin}
         />
         <Button
           title="회원가입"
