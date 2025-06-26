@@ -3,10 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Calendar from 'react-calendar';
 import { format } from 'date-fns';
-import { FiPlus, FiX, FiLogOut } from 'react-icons/fi';
+import { FiPlus, FiX, FiLogOut, FiTrash2, FiEdit2 } from 'react-icons/fi';
 import todoApi from '../api/todoApi';
 import 'react-calendar/dist/Calendar.css';
-
 
 const Container = styled.div`
   display: flex;
@@ -105,6 +104,7 @@ const Checkbox = styled.input`
   width: 20px;
   height: 20px;
   cursor: pointer;
+  flex-shrink: 0;
 `;
 
 const TodoContent = styled.span`
@@ -112,6 +112,11 @@ const TodoContent = styled.span`
   font-size: 18px;
   text-decoration: ${props => props.checked ? 'line-through' : 'none'};
   color: ${props => props.checked ? '#666' : 'white'};
+  cursor: pointer;
+  
+  &:hover {
+    color: #aaa;
+  }
 `;
 
 const Emoji = styled.span`
@@ -254,7 +259,6 @@ const TodoDot = styled.div`
   border-radius: 50%;
 `;
 
-// 모달 관련 스타일
 const ModalOverlay = styled.div`
   position: fixed;
   top: 0;
@@ -280,6 +284,10 @@ const ModalTitle = styled.h3`
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 `;
 
 const ModalInput = styled.input`
@@ -322,7 +330,6 @@ const EmojiButton = styled.button`
 const ModalButtons = styled.div`
   display: flex;
   gap: 10px;
-  justify-content: flex-end;
 `;
 
 const ModalButton = styled.button`
@@ -332,6 +339,9 @@ const ModalButton = styled.button`
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 `;
 
 const SaveButton = styled(ModalButton)`
@@ -343,12 +353,13 @@ const SaveButton = styled(ModalButton)`
   }
 `;
 
-const CancelButton = styled(ModalButton)`
-  background-color: #4a4a4a;
+const DeleteButton = styled(ModalButton)`
+  background-color: #d32f2f;
   color: white;
-  
+  margin-right: auto;
+
   &:hover {
-    background-color: #5a5a5a;
+    background-color: #b71c1c;
   }
 `;
 
@@ -373,15 +384,16 @@ function TodoList() {
   const [todos, setTodos] = useState([]);
   const [allTodos, setAllTodos] = useState([]);
   const [loading, setLoading] = useState(false);
+  
   const [showAddModal, setShowAddModal] = useState(false);
-  const [newTodo, setNewTodo] = useState({
-    content: '',
-    emoji: '😊'
-  });
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [currentTodo, setCurrentTodo] = useState(null);
+
+  const [newTodo, setNewTodo] = useState({ content: '', emoji: '😊' });
+  const [editTodo, setEditTodo] = useState({ content: '', emoji: '' });
 
   const emojiOptions = ['😊', '😎', '🌸', '😸', '🍰', '🧸', '📚', '💻', '🎯', '✨'];
 
-  // 모든 Todo 가져오기
   useEffect(() => {
     async function fetchData() {
       try {
@@ -394,61 +406,12 @@ function TodoList() {
         }
         
         const todos = await todoApi.getTodos(userId);
-        console.log('Todos:', todos);
         setAllTodos(todos);
       } catch(e) {
         console.error("error", e);
-        
-        // 임시 데이터..
         const tempData = [
-          {
-            "todo_id": 1,
-            "user": "minkyoung",
-            "date": "2025-06-13T17:17:01Z",
-            "content": "정안과 도서관가기",
-            "is_checked": true,
-            "emoji": "😎"
-          },
-          {
-            "todo_id": 2,
-            "user": "minkyoung",
-            "date": "2025-06-16T06:00:00Z",
-            "content": "해승과 리액트 공부하기",
-            "is_checked": true,
-            "emoji": "😁"
-          },
-          {
-            "todo_id": 3,
-            "user": "minkyoung",
-            "date": "2025-06-19T12:00:00Z",
-            "content": "예원과 동방 공부하기",
-            "is_checked": true,
-            "emoji": "🌸"
-          },
-          {
-            "todo_id": 4,
-            "user": "minkyoung",
-            "date": "2025-06-21T17:17:56Z",
-            "content": "다예와 산책하기",
-            "is_checked": true,
-            "emoji": "😸"
-          },
-          {
-            "todo_id": 5,
-            "user": "minkyoung",
-            "date": "2025-06-23T12:00:00Z",
-            "content": "선우와 케이크먹기",
-            "is_checked": false,
-            "emoji": "🍰"
-          },
-          {
-            "todo_id": 6,
-            "user": "minkyoung",
-            "date": "2025-06-24T18:00:00Z",
-            "content": "유경과 밤 새기",
-            "is_checked": false,
-            "emoji": "🧸"
-          }
+            { "todo_id": 1, "user": "minkyoung", "date": "2025-06-26T17:17:01Z", "content": "정안과 도서관가기", "is_checked": true, "emoji": "😎" },
+            { "todo_id": 2, "user": "minkyoung", "date": "2025-06-26T06:00:00Z", "content": "해승과 리액트 공부하기", "is_checked": true, "emoji": "😁" },
         ];
         setAllTodos(tempData);
       } finally {
@@ -459,24 +422,18 @@ function TodoList() {
     fetchData();
   }, [navigate]);
 
-
   useEffect(() => {
-    filterTodosByDate();
-  }, [selectedDate, allTodos]);
-
-  const filterTodosByDate = () => {
     const dateString = format(selectedDate, 'yyyy-MM-dd');
     const filtered = allTodos.filter(todo => {
       const todoDate = format(new Date(todo.date), 'yyyy-MM-dd');
       return todoDate === dateString;
     });
     setTodos(filtered);
-  };
+  }, [selectedDate, allTodos]);
 
   const handleCheckboxChange = async (todoId, currentStatus) => {
     try {
       const userId = localStorage.getItem('userId');
-      
       await todoApi.checkTodo(userId, todoId);
       
       setAllTodos(prev => prev.map(todo => 
@@ -485,8 +442,56 @@ function TodoList() {
           : todo
       ));
     } catch (error) {
-      console.error('Todo 업데이트 실패:', error);
-      alert('체크 상태 변경에 실패했습니다.');
+      console.error('Todo 체크 실패:', error);
+      alert('체크 상태 변경에 실패했습니다. (서버 응답 문제)');
+    }
+  };
+
+  const handleTodoClick = (todo) => {
+    setCurrentTodo(todo);
+    setEditTodo({ content: todo.content, emoji: todo.emoji });
+    setShowEditModal(true);
+  };
+
+  const handleUpdateTodo = async () => {
+    if (!editTodo.content.trim()) {
+      alert('할 일을 입력해주세요.');
+      return;
+    }
+
+    try {
+      const userId = localStorage.getItem('userId');
+      const todoData = {
+        content: editTodo.content,
+        emoji: editTodo.emoji
+      };
+      
+      const updatedTodo = await todoApi.updateTodo(userId, currentTodo.todo_id, todoData);
+
+      setAllTodos(prev => prev.map(todo => 
+        todo.todo_id === currentTodo.todo_id ? updatedTodo : todo
+      ));
+      
+      handleModalClose();
+      alert('할 일이 수정되었습니다!');
+    } catch (error) {
+      console.error('Todo 수정 실패:', error);
+      alert('수정에 실패했습니다.');
+    }
+  };
+
+  const handleDeleteTodo = async () => {
+    try {
+      const userId = localStorage.getItem('userId');
+      await todoApi.deleteTodo(userId, currentTodo.todo_id);
+
+      setAllTodos(prev => prev.filter(todo => todo.todo_id !== currentTodo.todo_id));
+      
+      handleModalClose();
+      alert('할 일이 삭제되었습니다.');
+    } catch (error) {
+      console.error('Todo 삭제 실패:', error);
+      alert('삭제에 실패했습니다.');
     }
   };
 
@@ -502,7 +507,6 @@ function TodoList() {
 
     try {
       const userId = localStorage.getItem('userId');
-      
       const todoData = {
         date: selectedDate.toISOString(),
         content: newTodo.content,
@@ -510,42 +514,35 @@ function TodoList() {
       };
       
       const response = await todoApi.createTodo(userId, todoData);
-      
       setAllTodos(prev => [...prev, response]);
       
-      setShowAddModal(false);
-      setNewTodo({ content: '', emoji: '😊' });
-      
+      handleModalClose();
       alert('할 일이 추가되었습니다!');
     } catch (error) {
       console.error('Todo 추가 실패:', error);
-      if (error.response) {
-        alert(`할 일 추가 실패: ${error.response.data.message || '다시 시도해주세요.'}`);
-      } else {
-        alert('서버 연결에 실패했습니다.');
-      }
+      alert('추가에 실패했습니다.');
     }
   };
-
+  
   const handleModalClose = () => {
     setShowAddModal(false);
+    setShowEditModal(false);
+    setCurrentTodo(null);
     setNewTodo({ content: '', emoji: '😊' });
+    setEditTodo({ content: '', emoji: '' });
   };
-
+  
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
+    localStorage.removeItem('username');
     navigate('/login');
   };
 
   const tileContent = ({ date, view }) => {
     if (view === 'month') {
       const dateString = format(date, 'yyyy-MM-dd');
-      const hasTodo = allTodos.some(todo => {
-        const todoDate = format(new Date(todo.date), 'yyyy-MM-dd');
-        return todoDate === dateString;
-      });
-      
+      const hasTodo = allTodos.some(todo => format(new Date(todo.date), 'yyyy-MM-dd') === dateString);
       return hasTodo ? <TodoDot /> : null;
     }
   };
@@ -587,7 +584,10 @@ function TodoList() {
               todos.map(todo => (
                 <TodoItem key={todo.todo_id}>
                   <Emoji>{todo.emoji}</Emoji>
-                  <TodoContent checked={todo.is_checked}>
+                  <TodoContent 
+                    checked={todo.is_checked}
+                    onClick={() => handleTodoClick(todo)}
+                  >
                     {todo.content}
                   </TodoContent>
                   <Checkbox
@@ -609,10 +609,8 @@ function TodoList() {
       {showAddModal && (
         <ModalOverlay onClick={handleModalClose}>
           <ModalContent onClick={(e) => e.stopPropagation()}>
-            <CloseButton onClick={handleModalClose}>
-              <FiX />
-            </CloseButton>
-            <ModalTitle>새 할 일 추가</ModalTitle>
+            <CloseButton onClick={handleModalClose}><FiX /></CloseButton>
+            <ModalTitle><FiPlus /> 새 할 일 추가</ModalTitle>
             
             <ModalInput
               type="text"
@@ -635,9 +633,43 @@ function TodoList() {
               ))}
             </EmojiContainer>
             
+            <ModalButtons style={{ justifyContent: 'flex-end' }}>
+              <SaveButton onClick={handleSaveTodo}><FiPlus/> 추가</SaveButton>
+            </ModalButtons>
+          </ModalContent>
+        </ModalOverlay>
+      )}
+
+      {showEditModal && currentTodo && (
+        <ModalOverlay onClick={handleModalClose}>
+          <ModalContent onClick={(e) => e.stopPropagation()}>
+            <CloseButton onClick={handleModalClose}><FiX /></CloseButton>
+            <ModalTitle><FiEdit2 /> 할 일 수정</ModalTitle>
+            
+            <ModalInput
+              type="text"
+              placeholder="할 일을 입력하세요"
+              value={editTodo.content}
+              onChange={(e) => setEditTodo({ ...editTodo, content: e.target.value })}
+              autoFocus
+            />
+            
+            <p style={{ marginBottom: '10px', color: '#999' }}>이모지 선택:</p>
+            <EmojiContainer>
+              {emojiOptions.map(emoji => (
+                <EmojiButton
+                  key={emoji}
+                  selected={editTodo.emoji === emoji}
+                  onClick={() => setEditTodo({ ...editTodo, emoji })}
+                >
+                  {emoji}
+                </EmojiButton>
+              ))}
+            </EmojiContainer>
+            
             <ModalButtons>
-              <CancelButton onClick={handleModalClose}>취소</CancelButton>
-              <SaveButton onClick={handleSaveTodo}>저장</SaveButton>
+              <DeleteButton onClick={handleDeleteTodo}><FiTrash2 /> 삭제</DeleteButton>
+              <SaveButton onClick={handleUpdateTodo}><FiEdit2 /> 저장</SaveButton>
             </ModalButtons>
           </ModalContent>
         </ModalOverlay>
