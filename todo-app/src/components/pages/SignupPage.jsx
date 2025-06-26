@@ -66,12 +66,17 @@ const Mention = styled.p`
   font-size: 21px;
 `;
 
-function LoginPage() {
+function SignupPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleRegister = async () => {
+    if (!username || !password) {
+      alert("아이디와 비밀번호를 입력해주세요.");
+      return;
+    }
+
     try {
       const res = await axios.post(
         `${BASE_URL}/api/users/register/`,
@@ -85,10 +90,11 @@ function LoginPage() {
           },
         }
       );
+
       alert("회원가입 성공!");
-      navigate("/main-page");
+      navigate("/");
     } catch (error) {
-      console.log("회원가입 실패", error);
+      alert("회원가입 실패", error);
     }
   };
 
@@ -142,4 +148,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default SignupPage;
