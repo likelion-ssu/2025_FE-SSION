@@ -27,12 +27,14 @@ function Task({ selectedDate }) {
     weekday: "short",
   });
 
+  const userId = localStorage.getItem("user_id");
+
   return (
     <Wrapper>
       <h2 style={{ fontSize: "1.4rem", marginBottom: "12px" }}>{dateStr}</h2>
 
       {/* 할 일 목록 */}
-      <TodoList date={selectedDate} />
+      <TodoList userId={userId} selectedDate={selectedDate} />
       {/* 감정 표시 */}
       {selectedMood && (
         <p style={{ fontSize: "1.3rem", marginTop: "20px" }}>
