@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Calendar from 'react-calendar';
 import { format } from 'date-fns';
-import { FiPlus, FiX, FiLogOut, FiTrash2, FiEdit2 } from 'react-icons/fi';
+import { FiPlus, FiX, FiLogOut, FiTrash2, FiEdit2, FiSearch, FiCalendar } from 'react-icons/fi';
 import todoApi from '../api/todoApi';
 import 'react-calendar/dist/Calendar.css';
 
@@ -12,6 +12,7 @@ const Container = styled.div`
   min-height: 100vh;
   background-color: #2c2c2c;
   color: white;
+  flex-direction: column;
 `;
 
 const Header = styled.div`
@@ -52,9 +53,9 @@ const LogoutButton = styled.button`
 const MainContent = styled.div`
   display: flex;
   width: 100%;
-  padding-top: 60px;
-  margin: 40px;
+  padding: 20px 40px 40px 40px;
   gap: 40px;
+  flex: 1;
 `;
 
 const CalendarSection = styled.div`
@@ -378,12 +379,87 @@ const CloseButton = styled.button`
   }
 `;
 
+const SearchSectionContainer = styled.div`
+  padding: 80px 40px 20px 40px;
+  background-color: #2c2c2c;
+  display: flex;
+  flex-direction: row; 
+  align-items: center; 
+  gap: 20px;
+  flex-wrap: wrap; 
+`;
+
+const SearchBar = styled.div`
+  display: flex;
+  gap: 10px;
+  flex-grow: 1; 
+  min-width: 300px; 
+`;
+
+const SearchInput = styled.input`
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background-color: #3a3a3a;
+  color: white;
+  font-size: 16px;
+  outline: none;
+
+  &:focus {
+    border-color: #4169e1;
+  }
+`;
+
+const SearchButton = styled.button`
+  padding: 0 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #4169e1;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &:hover {
+    background-color: #3050c0;
+  }
+`;
+
+const FilterButtons = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+const FilterButton = styled.button`
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #555;
+  background-color: #3a3a3a;
+  color: #ddd;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap; 
+
+  &:hover {
+    background-color: #4a4a4a;
+    border-color: #777;
+  }
+`;
+
 function TodoList() {
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [todos, setTodos] = useState([]);
   const [allTodos, setAllTodos] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [viewMode, setViewMode] = useState('calendar');
+  const [searchTitle, setSearchTitle] = useState('');
   
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
@@ -398,7 +474,7 @@ function TodoList() {
     async function fetchData() {
       try {
         setLoading(true);
-        const userId = localStorage.getItem('userId');
+        const userId = localStorage.getItem('username');
         
         if (!userId) {
           navigate('/login');
@@ -409,41 +485,148 @@ function TodoList() {
         setAllTodos(todos);
       } catch(e) {
         console.error("error", e);
-        const tempData = [
-            { "todo_id": 1, "user": "minkyoung", "date": "2025-06-26T17:17:01Z", "content": "정안과 도서관가기", "is_checked": true, "emoji": "😎" },
-            { "todo_id": 2, "user": "minkyoung", "date": "2025-06-26T06:00:00Z", "content": "해승과 리액트 공부하기", "is_checked": true, "emoji": "😁" },
-        ];
-        setAllTodos(tempData);
       } finally {
         setLoading(false);
       }
     }
-
     fetchData();
   }, [navigate]);
 
   useEffect(() => {
-    const dateString = format(selectedDate, 'yyyy-MM-dd');
-    const filtered = allTodos.filter(todo => {
-      const todoDate = format(new Date(todo.date), 'yyyy-MM-dd');
-      return todoDate === dateString;
-    });
-    setTodos(filtered);
-  }, [selectedDate, allTodos]);
+    if (viewMode === 'calendar') {
+      const dateString = format(selectedDate, 'yyyy-MM-dd');
+      const filtered = allTodos.filter(todo => {
+        const todoDate = format(new Date(todo.date), 'yyyy-MM-dd');
+        return todoDate === dateString;
+      });
+      setTodos(filtered);
+    }
+  }, [selectedDate, allTodos, viewMode]);
+  
+  const handleSearch = async () => {
+    if (!searchQuery.trim()) {
+      alert('검색어를 입력해주세요.');
+      return;
+    }
+    setLoading(true);
+    try {
+      const userId = localStorage.getItem('username');
+      const results = await todoApi.searchByKeyword(userId, searchQuery);
+      setSearchResults(results);
+      setSearchTitle(`'${searchQuery}' 검색 결과`);
+      setViewMode('search');
+    } catch (error) {
+      console.error('검색 실패:', error);
+      setSearchResults([]);
+      setSearchTitle(`'${searchQuery}'에 대한 검색 결과가 없습니다.`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleFilter = async (filterType) => {
+    setLoading(true);
+    try {
+      const userId = localStorage.getItem('username');
+      let results = [];
+      if (filterType === 'checked') {
+        results = await todoApi.getCheckedTodos(userId);
+        setSearchTitle('완료된 할 일 목록');
+      } else if (filterType === 'unchecked') {
+        results = await todoApi.getUncheckedTodos(userId);
+        setSearchTitle('미완료 할 일 목록');
+      }
+      setSearchResults(results);
+      setViewMode('search');
+    } catch (error) {
+      console.error('필터링 실패:', error);
+      setSearchResults([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+  const handleClearSearch = () => {
+    setViewMode('calendar');
+    setSearchQuery('');
+    setSearchResults([]);
+    setSearchTitle('');
+  };
 
   const handleCheckboxChange = async (todoId, currentStatus) => {
+  try {
+    const userId = localStorage.getItem('username');
+    //const userId = 100;
+    const todoData = {
+      is_checked: !currentStatus 
+    };
+
+    await todoApi.checkTodo(userId, todoId, todoData); 
+    
+    const updateList = (list) => list.map(todo => 
+      todo.todo_id === todoId 
+        ? { ...todo, is_checked: !currentStatus }
+        : todo
+    );
+    
+    setAllTodos(prev => updateList(prev));
+    if (viewMode === 'search') {
+      setSearchResults(prev => updateList(prev));
+    }
+  } catch (error) {
+    console.error('Todo 체크 실패:', error);
+    alert('체크 상태 변경에 실패했습니다.');
+  }
+};
+  
+  const handleUpdateTodo = async () => {
+    if (!editTodo.content.trim()) {
+      alert('할 일을 입력해주세요.');
+      return;
+    }
     try {
-      const userId = localStorage.getItem('userId');
-      await todoApi.checkTodo(userId, todoId);
+      const userId = localStorage.getItem('username');
+      const todoId = currentTodo.todo_id;
+      const todoData = {
+        content: editTodo.content,
+        emoji: editTodo.emoji
+      };
       
-      setAllTodos(prev => prev.map(todo => 
-        todo.todo_id === todoId 
-          ? { ...todo, is_checked: !currentStatus }
-          : todo
-      ));
+      const updatedTodo = await todoApi.updateTodo(userId, todoId, todoData);
+
+      const updateList = (list) => list.map(todo => 
+        todo.todo_id === todoId ? updatedTodo : todo
+      );
+      
+      setAllTodos(prev => updateList(prev));
+      if (viewMode === 'search') {
+        setSearchResults(prev => updateList(prev));
+      }
+      
+      handleModalClose();
     } catch (error) {
-      console.error('Todo 체크 실패:', error);
-      alert('체크 상태 변경에 실패했습니다. (서버 응답 문제)');
+      console.error('Todo 수정 실패:', error);
+      alert('수정에 실패했습니다.');
+    }
+  };
+  
+  const handleDeleteTodo = async () => {
+    try {
+      const userId = localStorage.getItem('username');
+      const todoId = currentTodo.todo_id;
+      await todoApi.deleteTodo(userId, todoId);
+
+      const updateList = (list) => list.filter(todo => todo.todo_id !== todoId);
+      
+      setAllTodos(prev => updateList(prev));
+      if (viewMode === 'search') {
+        setSearchResults(prev => updateList(prev));
+      }
+
+      handleModalClose();
+    } catch (error) {
+      console.error('Todo 삭제 실패:', error);
+      alert('삭제에 실패했습니다.');
     }
   };
 
@@ -452,49 +635,7 @@ function TodoList() {
     setEditTodo({ content: todo.content, emoji: todo.emoji });
     setShowEditModal(true);
   };
-
-  const handleUpdateTodo = async () => {
-    if (!editTodo.content.trim()) {
-      alert('할 일을 입력해주세요.');
-      return;
-    }
-
-    try {
-      const userId = localStorage.getItem('userId');
-      const todoData = {
-        content: editTodo.content,
-        emoji: editTodo.emoji
-      };
-      
-      const updatedTodo = await todoApi.updateTodo(userId, currentTodo.todo_id, todoData);
-
-      setAllTodos(prev => prev.map(todo => 
-        todo.todo_id === currentTodo.todo_id ? updatedTodo : todo
-      ));
-      
-      handleModalClose();
-      alert('할 일이 수정되었습니다!');
-    } catch (error) {
-      console.error('Todo 수정 실패:', error);
-      alert('수정에 실패했습니다.');
-    }
-  };
-
-  const handleDeleteTodo = async () => {
-    try {
-      const userId = localStorage.getItem('userId');
-      await todoApi.deleteTodo(userId, currentTodo.todo_id);
-
-      setAllTodos(prev => prev.filter(todo => todo.todo_id !== currentTodo.todo_id));
-      
-      handleModalClose();
-      alert('할 일이 삭제되었습니다.');
-    } catch (error) {
-      console.error('Todo 삭제 실패:', error);
-      alert('삭제에 실패했습니다.');
-    }
-  };
-
+  
   const handleAddTodo = () => {
     setShowAddModal(true);
   };
@@ -506,7 +647,7 @@ function TodoList() {
     }
 
     try {
-      const userId = localStorage.getItem('userId');
+      const userId = localStorage.getItem('username');
       const todoData = {
         date: selectedDate.toISOString(),
         content: newTodo.content,
@@ -517,7 +658,6 @@ function TodoList() {
       setAllTodos(prev => [...prev, response]);
       
       handleModalClose();
-      alert('할 일이 추가되었습니다!');
     } catch (error) {
       console.error('Todo 추가 실패:', error);
       alert('추가에 실패했습니다.');
@@ -540,16 +680,19 @@ function TodoList() {
   };
 
   const tileContent = ({ date, view }) => {
-    if (view === 'month') {
+    if (viewMode === 'calendar') {
       const dateString = format(date, 'yyyy-MM-dd');
       const hasTodo = allTodos.some(todo => format(new Date(todo.date), 'yyyy-MM-dd') === dateString);
       return hasTodo ? <TodoDot /> : null;
     }
+    return null;
   };
 
   const formatDateTitle = (date) => {
     return `${date.getMonth() + 1}월 ${date.getDate()}일`;
   };
+
+  const listToRender = viewMode === 'calendar' ? todos : searchResults;
 
   return (
     <Container>
@@ -561,6 +704,28 @@ function TodoList() {
         </LogoutButton>
       </Header>
       
+      <SearchSectionContainer>
+        <SearchBar>
+          <SearchInput 
+            type="text" 
+            placeholder="할 일 내용 검색..." 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+          />
+          <SearchButton onClick={handleSearch}><FiSearch /> 검색</SearchButton>
+        </SearchBar>
+        <FilterButtons>
+          <FilterButton onClick={() => handleFilter('checked')}>완료된 할 일</FilterButton>
+          <FilterButton onClick={() => handleFilter('unchecked')}>미완료 할 일</FilterButton>
+          {viewMode === 'search' && (
+            <FilterButton onClick={handleClearSearch} style={{backgroundColor: '#4a4a4a', color: 'white'}}>
+              <FiCalendar /> 달력 보기
+            </FilterButton>
+          )}
+        </FilterButtons>
+      </SearchSectionContainer>
+
       <MainContent>
         <CalendarSection>
           <StyledCalendar
@@ -573,15 +738,19 @@ function TodoList() {
         </CalendarSection>
         
         <TodoSection>
-          <DateTitle>{formatDateTitle(selectedDate)}</DateTitle>
+          <DateTitle>
+            {viewMode === 'calendar' ? formatDateTitle(selectedDate) : searchTitle}
+          </DateTitle>
           
           <TodoListContainer>
             {loading ? (
               <EmptyMessage>로딩 중...</EmptyMessage>
-            ) : todos.length === 0 ? (
-              <EmptyMessage>할 일이 없습니다</EmptyMessage>
+            ) : listToRender.length === 0 ? (
+              <EmptyMessage>
+                {viewMode === 'search' ? '해당하는 결과가 없습니다.' : '할 일이 없습니다'}
+              </EmptyMessage>
             ) : (
-              todos.map(todo => (
+              listToRender.map(todo => (
                 <TodoItem key={todo.todo_id}>
                   <Emoji>{todo.emoji}</Emoji>
                   <TodoContent 
@@ -600,9 +769,11 @@ function TodoList() {
             )}
           </TodoListContainer>
           
-          <AddButton onClick={handleAddTodo}>
-            <FiPlus />
-          </AddButton>
+          {viewMode === 'calendar' && 
+            <AddButton onClick={handleAddTodo}>
+              <FiPlus />
+            </AddButton>
+          }
         </TodoSection>
       </MainContent>
 

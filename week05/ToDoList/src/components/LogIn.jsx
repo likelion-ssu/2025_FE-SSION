@@ -107,7 +107,7 @@ function Login() {
         password: formData.password
       });
       
-      localStorage.setItem('userId', response.user_id);
+      localStorage.setItem('username', response.user_id);
       localStorage.setItem('token', response.token || 'logged-in');
       
       alert('로그인 성공!');
