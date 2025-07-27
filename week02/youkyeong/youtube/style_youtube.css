@@ -1,0 +1,274 @@
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  gap: 170px;
+}
+
+.top-menu {
+  display: flex;
+  align-items: center; /*아이콘(이미지)와 텍스트가 같은 위치에 존재하게 */
+  gap: 20px;
+  padding: 15px;
+  width: 200px;
+  background-color: #fff;
+  position: fixed;
+}
+
+.top-menu i {
+  font-size: 24px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+/* 검색 창 */
+.search {
+  display: flex;
+  margin-left: 400px;
+}
+
+/* 검색 */
+.search-text {
+  width: 500px;
+  height: 40px;
+  align-items: center;
+  border: solid 1px #ddd;
+  background-color: #fff;
+  border-radius: 40px 0 0 40px;
+  box-shadow: inset 0 1px 2px #eee;
+  margin-left: 32px;
+  padding: 0 4px 0 16px;
+  display: flex;
+  flex: 1;
+  cursor: text;
+}
+
+.search-button {
+  font-size: 20px;
+  border: 1px solid #d3d3d3;
+  background-color: #f8f8f8;
+  width: 64px;
+  border-radius: 0 40px 40px 0;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.search-mic {
+  font-size: 18px;
+  border: 1px solid #d3d3d3;
+  background-color: #f6f6f6;
+  width: 40px;
+  border-radius: 40px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+/* 헤더의 사이드(맨 오른쪽)*/
+.header-side {
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+}
+
+.header-side-elements {
+  font-size: 18px;
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* 사이드바 메뉴 */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  padding: 0px 10px;
+  height: 100vh;
+  overflow-y: auto;
+  cursor: pointer;
+}
+
+.sidebar ul {
+  padding: 0px 12px; /*실제 사이트 참고해 삽입*/
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+}
+
+.sidebar-menu li {
+  display: flex;
+  align-items: center; /*아이콘(이미지)와 텍스트가 같은 위치에 존재하게*/
+  font-size: 14px;
+  gap: 20px; /*아이콘(이미지)와 텍스트 사이의 gap*/
+  padding: 5px 14px;
+}
+
+/* 아이콘 */
+.sidebar-menu li i {
+  display: flex;
+  font-size: 25px;
+}
+
+/* 이미지 */
+.sidebar-menu img {
+  display: flex;
+  width: 24px;
+}
+
+/* 내 페이지, 탐색, 유튜브 더보기 같은 상위 menu */
+.sidebar-menu li.mother-menu {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.border-line {
+  border-bottom: solid #ddd 1px;
+}
+
+/* 메인*/
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: 265px;
+  width: (100%-265px);
+  padding: 20px;
+  gap: 40px;
+}
+
+.main-menu {
+  display: flex;
+  gap: 18px;
+}
+
+.main-menu button {
+  font-size: 14px;
+  font-weight: 500;
+  border: 1px solid #ffffff;
+  background-color: #0000000d;
+  border-radius: 7px;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+
+/* 비디오 */
+.video {
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.thumbnail {
+  width: 358px;
+  height: 197px;
+  border-radius: 10px;
+}
+
+.video-profile {
+  font-size: 18px;
+  border: 1px solid #ffffff;
+  background-color: #ffffff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.video-comment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.video-info {
+  position: relative;
+  left: 50px;
+  font-size: 14px;
+  color: #676767;
+}
+
+.video-list {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  overflow-y: auto;
+}
+
+/* 쇼츠 */
+.shorts-video-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  font-size: 19px;
+}
+
+.shorts-video-title img {
+  width: 24px;
+  height: 24px;
+}
+
+.shorts-video-list {
+  display: flex;
+  margin-bottom: 20px;
+  height: 471px;
+  gap: 13px;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+.shorts-video {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 214px;
+  height: 380px;
+  cursor: pointer;
+}
+
+.shorts-video-list {
+  display: flex;
+  margin-bottom: 20px;
+  height: 471px;
+  gap: 13px;
+  overflow-x: auto;
+  width: 100%; /*width를 명시해줘야 홈화면에서 그대로, 쇼츠 화면만 스크롤됨*/
+}
+
+.shorts-video img {
+  width: 214px;
+  height: 380px;
+  border-radius: 10px;
+}
+
+.shorts-title {
+  margin-top: 3px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.shorts-info {
+  font-size: 14px;
+  color: #676767;
+}
