@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>innerHTML 성능 비교 테스트</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .test-container {
+        border: 1px solid #ddd;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 5px;
+      }
+      .result {
+        background: #f5f5f5;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 3px;
+        font-family: monospace;
+      }
+      button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 3px;
+        cursor: pointer;
+        margin: 5px;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      .winner {
+        background: #d4edda;
+        border: 1px solid #c3e6cb;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>innerHTML += vs 배열.join() 성능 비교</h1>
+
+    <div class="test-container">
+      <h3>테스트 설정</h3>
+      <p>
+        1000개의 &lt;td&gt; 요소를 생성하는 두 가지 방법의 성능을 비교합니다.
+      </p>
+      <button onclick="runTests()">성능 테스트 실행</button>
+      <button onclick="clearResults()">결과 초기화</button>
+    </div>
+
+    <div class="test-container">
+      <h3>기본 innerHTML 테스트 결과</h3>
+      <div id="results"></div>
+    </div>
+
+    <div class="test-container">
+      <h3>실제 달력 렌더링 테스트 결과</h3>
+      <button onclick="testCalendar()">달력 렌더링 성능 테스트</button>
+      <div id="calendar-results"></div>
+    </div>
+
+    <div id="test-area" style="display: none"></div>
+
+    <script>
+      function runTests() {
+        const iterations = 1000;
+        const testArea = document.getElementById("test-area");
+        const resultsDiv = document.getElementById("results");
+
+        // 방식 1: innerHTML += 반복
+        const start1 = performance.now();
+        testArea.innerHTML = "";
+        for (let i = 0; i < iterations; i++) {
+          testArea.innerHTML += `<td>cell ${i}</td>`;
+        }
+        const end1 = performance.now();
+        const innerHTMLTime = end1 - start1;
+
+        // 방식 2: 배열.join 후 한 번에 삽입 (약간의 딜레이로 간섭 방지)
+        setTimeout(() => {
+          const start2 = performance.now();
+          const cells = [];
+          for (let i = 0; i < iterations; i++) {
+            cells.push(`<td>cell ${i}</td>`);
+          }
+          testArea.innerHTML = cells.join("");
+          const end2 = performance.now();
+          const arrayTime = end2 - start2;
+
+          displayResults(innerHTMLTime, arrayTime);
+        }, 50);
+      }
+
+      function displayResults(innerHTMLTime, arrayTime) {
+        const resultsDiv = document.getElementById("results");
+        const speedup = (innerHTMLTime / arrayTime).toFixed(2);
+        const winner = innerHTMLTime > arrayTime ? "array" : "innerHTML";
+
+        resultsDiv.innerHTML = `
+                <div class="result ${winner === "innerHTML" ? "winner" : ""}">
+                    <strong>innerHTML += 방식:</strong> ${innerHTMLTime.toFixed(
+                      2
+                    )}ms
+                </div>
+                <div class="result ${winner === "array" ? "winner" : ""}">
+                    <strong>배열 방식:</strong> ${arrayTime.toFixed(2)}ms
+                </div>
+                <div class="result">
+                    <strong>성능 차이:</strong> ${
+                      innerHTMLTime > arrayTime ? "배열" : "innerHTML"
+                    } 방식이 ${Math.max(
+          speedup,
+          (arrayTime / innerHTMLTime).toFixed(2)
+        )}배 빠름
+                </div>
+                <div class="result">
+                    <strong>절약된 시간:</strong> ${Math.abs(
+                      innerHTMLTime - arrayTime
+                    ).toFixed(2)}ms
+                </div>
+            `;
+      }
+
+      function testCalendar() {
+        const resultsDiv = document.getElementById("calendar-results");
+        const testArea = document.getElementById("test-area");
+
+        const start1 = performance.now();
+        testArea.innerHTML = '<table><tbody id="calendar1"></tbody></table>';
+        const calendar1 = document.getElementById("calendar1");
+
+        for (let week = 0; week < 6; week++) {
+          let rowHTML = "<tr>";
+          for (let day = 0; day < 7; day++) {
+            rowHTML += `<td>${week * 7 + day + 1}</td>`;
+          }
+          rowHTML += "</tr>";
+          calendar1.innerHTML += rowHTML;
+        }
+        const end1 = performance.now();
+
+        const start2 = performance.now();
+        testArea.innerHTML = '<table><tbody id="calendar2"></tbody></table>';
+        const calendar2 = document.getElementById("calendar2");
+
+        const rows = [];
+        for (let week = 0; week < 6; week++) {
+          const cells = [];
+          for (let day = 0; day < 7; day++) {
+            cells.push(`<td>${week * 7 + day + 1}</td>`);
+          }
+          rows.push(`<tr>${cells.join("")}</tr>`);
+        }
+        calendar2.innerHTML = rows.join("");
+        const end2 = performance.now();
+
+        const time1 = end1 - start1;
+        const time2 = end2 - start2;
+        const speedup = (time1 / time2).toFixed(2);
+
+        resultsDiv.innerHTML = `
+                <div class="result">
+                    <strong>innerHTML += 달력:</strong> ${time1.toFixed(2)}ms
+                </div>
+                <div class="result winner">
+                    <strong>배열 방식 달력:</strong> ${time2.toFixed(2)}ms
+                </div>
+                <div class="result">
+                    <strong>개선 효과:</strong> ${speedup}배 빠름
+                </div>
+            `;
+      }
+
+      function clearResults() {
+        document.getElementById("results").innerHTML = "";
+        document.getElementById("calendar-results").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>
