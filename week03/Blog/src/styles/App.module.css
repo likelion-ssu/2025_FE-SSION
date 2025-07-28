@@ -1,0 +1,97 @@
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  position: relative;
+  min-height: 400px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 0 16px 0;
+}
+
+.headerArea {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 1.2em;
+  position: relative;
+}
+
+.buttonArea {
+  margin: 1.2em 0 1.2em 0;
+  text-align: left;
+}
+
+.postContainer {
+  min-height: 400px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.commentArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  padding-bottom: 80px;
+}
+
+.commentList {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.commentWriteForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.inputWrapper {
+  width: 100%;
+}
+
+.commentInput {
+  width: 100%;
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.commentSubmitButton {
+  min-width: 110px;
+  font-size: 1rem;
+  padding: 12px 24px;
+  white-space: nowrap;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.commentSubmitButton:hover {
+  background: #1565c0;
+}

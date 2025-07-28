@@ -1,0 +1,36 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  padding-bottom: 64px;
+}
+
+.input {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 220px;
+  font-size: 1.1rem;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
