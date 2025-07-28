@@ -1,0 +1,265 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0f0f0f;
+    color: white;
+}
+
+.top_part {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #0f0f0f;
+    border-bottom: 1px solid #303030;
+}
+
+.header_left, .header_middle {
+    display: flex;
+    align-items: center;
+}
+
+.header_left img {
+    height: 23px;
+}
+
+#youtube_main {
+    height: 32px;
+    margin-left: 28px;
+}
+.header_middle {
+    flex: 1;
+    justify-content: center;
+}
+
+.search_input {
+    width: 500px;
+    height: 36px;
+    padding: 0 16px;
+    font-size: 14px;
+    border: 1px solid #303030;
+    border-right: none;
+    border-radius: 40px 0 0 40px;
+    background-color: #121212;
+    color: white;
+    box-sizing: border-box;
+}
+
+.search_button {
+    height: 36px;
+    padding: 0 16px;
+    border: 1px solid #303030;
+    border-left: none;
+    border-radius: 0 40px 40px 0;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.search_button img, .voice_button img {
+    height: 24px;
+}
+
+.voice_button {
+    background-color: #222;
+    border: none;
+    margin-left: 10px;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+nav {
+    width: 72px;
+    background-color: #0f0f0f;
+    padding-top: 10px;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #303030;
+}
+
+.menu_button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 12px 0;
+    cursor: pointer;
+}
+
+.menu_button img {
+    height: 24px;
+    margin-bottom: 4px;
+}
+
+.menu_button p {
+    font-size: 10px;
+    color: white;
+    margin: 0;
+}
+
+.header_right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: 16px;
+}
+
+.make_button {
+    height: 36px;
+    padding: 0 20px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    color: white;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    appearance: none;
+}
+
+.notification_button,
+.profile_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.notification_button img,
+.profile_icon img {
+    height: 24px;
+    width: 24px;
+    object-fit: contain;
+}
+
+.video_option {
+    position: fixed;
+    top: 60px;
+    left: 88px;
+    right: 0;
+    z-index: 90;
+    display: flex;
+    gap: 8px;
+    padding: 8px 12px;
+    background-color: #0f0f0f;
+}
+
+.category {
+  background-color: #303030;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 6px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.category:first-child {
+  background-color: white;
+  color: black;
+}
+
+
+.video_list {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 16px;
+    table-layout: fixed;
+}
+
+.video_list td {
+    vertical-align: top;
+    width: calc((100% - 32px) / 3);
+}
+
+.video_part {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.video_part > img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.video_info {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.profile_image {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.video_text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.video_title {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.editor {
+    font-size: 12px;
+    color: #aaaaaa;
+    margin: 0;
+}
+
+.video_info p:last-child {
+    font-size: 12px;
+    color: #777777;
+    margin: 0;
+}
+
+.video_container {
+    position: fixed;
+    top: calc(60px + 52px);
+    left: 88px;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    padding: 16px;
+    box-sizing: border-box;
+    background-color: #0f0f0f;
+}
